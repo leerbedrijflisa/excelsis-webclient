@@ -5,7 +5,8 @@
     font-family: 'Open Sans', sans-serif;
     font-size: 10pt;
     text-align: center;
-    min-width: 320px;
+    /*This minimum width so we have a decent tablet supporting hybrid client*/
+    min-width: 768px;
 }
 
 form div 
@@ -24,7 +25,7 @@ form label
 
 form button 
 {
-    margin-left: 200px;
+
 }
 
 form li 
@@ -37,7 +38,7 @@ img
     width: 16px;
 }
 
-h1, h2
+h1, h2, h3
 {
     background-color: #ededed;
     border-bottom: 1px solid #DB4105;
@@ -135,6 +136,11 @@ ul li a
     opacity: 0.5;
 }
 
+.checkboxes
+{
+    float: right;
+}
+
 select
 {
    border: 1px solid #DB4105;
@@ -156,7 +162,7 @@ form
     overflow: hidden;
     border-bottom: 1px solid #DB4105;
     border-top: 1px solid #DB4105;
-    padding: 10px;
+    padding: 0;
     margin-top: 0px;
     margin-bottom: 10px;
 }
@@ -169,7 +175,7 @@ input[type=text], textarea
    outline: none;
    font-size: 20px;
    padding: 6px;
-   width: 50% auto;
+   width: 30% auto;
    margin: 5px;
    border: 1px solid #DDDDDD;
    border-radius: 3px;
@@ -185,14 +191,11 @@ input[type=text]:focus, textarea:focus
 {
    border: 1px solid #DB4105;
    padding: 10px;
+   height: auto;
    margin: 10px;
    background-color: #ededed;
    font-size: 20px;
-}
-
-.observation:hover
-{
-    border: 2px solid #DB4105;
+   width: 95%;
 }
 
 button 
@@ -210,10 +213,6 @@ button:hover
   border-color: #DB4105;
 }
 
-.checkbox
-{
-    width: 200px auto;
-}
 
 .criterium
 {

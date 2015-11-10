@@ -1,21 +1,17 @@
 ﻿<template>
     <ul class="question">
         <li class="observation"repeat.for="observation of assessment.observations">
-            <div class="questions">
-                <span>${observation.criterium.description}</span><br />
+                <h3>${observation.criterium.description}</h3><br />
                 <input type="radio" name="rating-${observation.criterium.order}" id="rating-done-${observation.criterium.order}">
                 <label for="rating-done-${observation.criterium.order}" class="criterium">voldaan</label>
-
                 <input type="radio" name="rating-${observation.criterium.order}" id="rating-notdone-${observation.criterium.order}">
                 <label for="rating-notdone-${observation.criterium.order}" class="criterium">niet voldaan</label>
-
                 <input type="radio" name="rating-${observation.criterium.order}" id="rating-notrated-${observation.criterium.order}" checked="checked" />
                 <label for="rating-notrated-${observation.criterium.order}" class="criterium">niet beoordeeld</label>
                 <input type="checkbox" name="thumbsup-${observation.criterium.order}"><img src="Icons/ok.png">
                 <input type="checkbox" name="thumbsdown-${observation.criterium.order}"><img src="Icons/question.png">
                 <input type="checkbox" name="questionmark-${observation.criterium.order}"><img src="Icons/star.png">
                 <input type="checkbox" name="asterisk-${observation.criterium.order}"><img src="Icons/Warning_icon.png">
-            </div>
-      </li>
+        </li>
     </ul>
 </template>
