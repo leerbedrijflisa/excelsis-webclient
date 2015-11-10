@@ -1,6 +1,8 @@
 ﻿<template>
-    <ul class="question">
-        <li class="observation"repeat.for="observation of assessment.observations">
+   <!--<ul class="question">
+        <li class="observation" repeat.for="observation of assessment.observations">
+
+                <span>${observation.criterium.order}</span>
                 <h3>${observation.criterium.description}</h3><br />
                 <input type="radio" name="rating-${observation.criterium.order}" id="rating-done-${observation.criterium.order}">
                 <label for="rating-done-${observation.criterium.order}" class="criterium">voldaan</label>
@@ -13,5 +15,22 @@
                 <input type="checkbox" name="questionmark-${observation.criterium.order}"><img src="Icons/star.png">
                 <input type="checkbox" name="asterisk-${observation.criterium.order}"><img src="Icons/Warning_icon.png">
         </li>
-    </ul>
+    </ul>--> 
+
+    <table class="question">
+        <tr repeat.for="observation of assessment.observations" class="observation">
+            <td class="numbering">${observation.criterium.order}</td>
+            <td style="text-align: left;">${observation.criterium.description}</td>
+            <td class="answer">
+                <button>voldaan</button>
+                <button>niet voldaan</button>
+            </td>
+            <td class="markings">
+                <input type="checkbox" name="thumbsup-${observation.criterium.order}"><img src="Icons/ok.png">
+                <input type="checkbox" name="thumbsdown-${observation.criterium.order}"><img src="Icons/question.png">
+                <input type="checkbox" name="questionmark-${observation.criterium.order}"><img src="Icons/star.png">
+                <input type="checkbox" name="asterisk-${observation.criterium.order}"><img src="Icons/Warning_icon.png">
+            </td>
+        </tr>
+    </table>
 </template>
