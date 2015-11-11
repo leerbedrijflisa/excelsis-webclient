@@ -24,7 +24,7 @@
                 <label class="questionmark1 answer" for="rating-done-${observation.criterium.order}" class.bind="observation.result == 'done' ? 'done' : 'notRated' ">
                     <button click.delegate="$parent.criteriumAnswerButton(observation.id, 'done')" class="questionmark" name="rating-${observation.criterium.order}" id="rating-done-${observation.criterium.order}">voldaan</button>
                 </label>           
-                <label class="questionmark2 answer" for="rating-notdone-${observation.criterium.order}" class.bind="observation.result == 'notDone' ? 'notDone' : 'notRated' ">
+                <label style="margin-left: -90px;" class="questionmark2 answer" for="rating-notdone-${observation.criterium.order}" class.bind="observation.result == 'notDone' ? 'notDone' : 'notRated' ">
                     <button click.delegate="$parent.criteriumAnswerButton(observation.id, 'notDone')" class="questionmark " name="rating-${observation.criterium.order}" id="rating-notdone-${observation.criterium.order}">niet voldaan</button>
                 </label>
             </td>

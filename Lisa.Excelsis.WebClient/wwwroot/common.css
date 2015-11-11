@@ -1,260 +1,266 @@
-﻿body 
-{   
-    margin: 0;
-    padding: 0;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 10pt;
-    text-align: center;
-    /*This minimum width so we have a decent tablet supporting hybrid client*/
-    min-width: 666px;
+﻿body
+{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 10pt;
+	margin: 0;
+	min-width: 666px;
+	padding: 0;
+	text-align: center;
 }
 
-form div 
+form div
 {
-    margin-bottom: 15px;
+	margin-bottom: 15px;
 }
 
 form label
 {
-    width: 140px;
-    display: inline-block;
-    text-align: left;
-    font-size: 20px;
-    margin-right: 15px;
+	display: inline-block;
+	font-size: 20px;
+	margin-right: 15px;
+	text-align: left;
+	width: 140px;
 }
 
-form li 
+form li
 {
-    margin-bottom: 1em;
+	margin-bottom: 1em;
 }
 
 img
 {
-    width: 16px;
+	width: 16px;
 }
 
 h1, h2
 {
-    background-color: #ededed;
-    border-bottom: 1px solid #DB4105;
-    padding: 10px;
-    margin-top: 0px;
-    margin-bottom: 10px;
+	background-color: #ededed;
+	border-bottom: 1px solid #DB4105;
+	margin-bottom: 10px;
+	margin-top: 0px;
+	padding: 10px;
 }
 
 ul
 {
-    text-align: center;  
-    margin: 0;
+	margin: 0;
+	text-align: center;
 }
 
-ul.results 
+ul.results
 {
-    list-style-type: none;
-    padding: 0px;
-    margin: 0px;
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
 }
 
-ul.results > li 
+ul.results > li
 {
-    border: 1px solid black;
-    border-radius: 3px;
-    margin: 10px;
-    padding: 10px;
-    max-width: 250px;
-    -webkit-transition: all 0.1s ease-in-out;
-   -moz-transition: all 0.1s ease-in-out;
-   -o-transition: all 0.1s ease-in-out;
+	border: 1px solid black;
+	border-radius: 3px;
+	margin: 10px;
+	max-width: 250px;
+	-moz-transition: all 0.1s ease-in-out;
+	-o-transition: all 0.1s ease-in-out;
+	padding: 10px;
+	-webkit-transition: all 0.1s ease-in-out;
 }
 
-ul.results > li:hover 
+ul.results > li:hover
 {
-    background-color: #f2f2f2;
-    cursor: pointer;
-    box-shadow: 0 0 5px #fe7515;
-    border: 1px solid #DB4105;
-   -webkit-transition: all 0.1s ease-in-out;
-   -moz-transition: all 0.1s ease-in-out;
-   -o-transition: all 0.1s ease-in-out;
+	background-color: #f2f2f2;
+	border: 1px solid #DB4105;
+	box-shadow: 0 0 5px #fe7515;
+	cursor: pointer;
+	-moz-transition: all 0.1s ease-in-out;
+	-o-transition: all 0.1s ease-in-out;
+	-webkit-transition: all 0.1s ease-in-out;
 }
 
 ul li
 {
-    display: inline-block;
-    text-align: center;
-    top: 0;
+	display: inline-block;
+	text-align: center;
+	top: 0;
 }
 
 ul li a
 {
-    text-decoration: none;
-    color: black;
-    font-size: 16px;
+	color: black;
+	font-size: 16px;
+	text-decoration: none;
 }
 
 .navigation
 {
-   min-width: 100%;
-   max-width: 100%;
-   margin: 0;
-   padding: 0;
+	margin: 0;
+	max-width: 100%;
+	min-width: 100%;
+	padding: 0;
 }
 
 .navigation ul
 {
-   border: 2px solid red;
-   width: 500px;
+	border: 2px solid red;
+	width: 500px;
 }
 
 .navigation li
 {
-   background-color: #ededed;
-   padding: 10px;
-   margin: 0;
-   width: calc(33.3% - 20px);
-   border-bottom: 1px solid #DB4105;
+	background-color: #ededed;
+	border-bottom: 1px solid #DB4105;
+	margin: 0;
+	padding: 10px;
+	width: calc(33.3% - 20px);
 }
 
 .navigation li a
 {
-   padding: 5px;
-   color: #DB4105;
-   font-weight: bold;
-   transition: all 0.1s ease;
-   opacity: 1.0;
+	color: #DB4105;
+	font-weight: bold;
+	opacity: 1.0;
+	padding: 5px;
+	transition: all 0.1s ease;
 }
 
 .navigation li a:hover
 {
-    opacity: 0.5;
+	opacity: 0.5;
 }
 
 .checkboxes
 {
-    float: right;
+	float: right;
 }
 
 select
 {
-   border: 1px solid #DB4105;
-   padding: 6px;
-   outline: none;
-   font-size: 20px;
-   margin: 5px;
-   border-radius: 3px;
+	border: 1px solid #DB4105;
+	border-radius: 3px;
+	font-size: 20px;
+	margin: 5px;
+	outline: none;
+	padding: 6px;
 }
 
 form
 {
-    text-align: match-parent;
-    margin-bottom: 10px;
+	margin-bottom: 10px;
+	text-align: match-parent;
 }
 
 table
 {
-    width: 100%;
-    border-spacing: 0;
+	border-spacing: 0;
+	width: 100%;
 }
 
 td
 {
-    padding: 20px;
-    border-bottom: 1px solid #DB4105;
+	border-bottom: 1px solid #DB4105;
+	padding: 20px;
 }
 
 td.numbering
 {
-    border-right: 1px solid #DB4105;
+	border-right: 1px solid #DB4105;
 }
 
 td.answer
 {
-    min-width: 20px;
+	min-width: 20px;
 }
 
 td.markings
 {
-    width: 100px;
+	width: 100px;
 }
 
 .question
 {
-    overflow: hidden;
-    border-bottom: 1px solid #DB4105;
-    border-top: 1px solid #DB4105;
-    padding: 0;
-    margin-top: 0px;
-    margin-bottom: 10px;
+	border-bottom: 1px solid #DB4105;
+	border-top: 1px solid #DB4105;
+	margin-bottom: 10px;
+	margin-top: 0px;
+	overflow: hidden;
+	padding: 0;
 }
 
 input[type=text], textarea
 {
-   -webkit-transition: all 0.1s ease-in-out;
-   -moz-transition: all 0.1s ease-in-out;
-   -o-transition: all 0.1s ease-in-out;
-   outline: none;
-   font-size: 20px;
-   padding: 6px;
-   width: 30% auto;
-   margin: 5px;
-   border: 1px solid #DDDDDD;
-   border-radius: 3px;
+	border: 1px solid #DDDDDD;
+	border-radius: 3px;
+	font-size: 20px;
+	margin: 5px;
+	-moz-transition: all 0.1s ease-in-out;
+	-o-transition: all 0.1s ease-in-out;
+	outline: none;
+	padding: 6px;
+	-webkit-transition: all 0.1s ease-in-out;
+	width: 30% auto;
 }
 
-input[type=text]:focus, textarea:focus 
+input[type=text]:focus, textarea:focus
 {
-   box-shadow: 0 0 5px #fe7515;
-   border: 1px solid #DB4105;
+	border: 1px solid #DB4105;
+	box-shadow: 0 0 5px #fe7515;
 }
 
-button 
+button
 {
-   cursor: pointer;
-   padding: 10px;
-   background-color: #c6c5c5;
-   border-radius: 3px;
-   height: 37px auto;
-   width: 70px auto;
-   border: 2px solid #ededed;
-  -webkit-transition: all 0.1s ease-in-out;
-  -moz-transition: all 0.1s ease-in-out;
-  -o-transition: all 0.1s ease-in-out;
+	background-color: #c6c5c5;
+	border: 2px solid #ededed;
+	border-radius: 7px;
+	cursor: pointer;
+	height: 37px auto;
+	-moz-transition: all 0.1s ease-in-out;
+	-o-transition: all 0.1s ease-in-out;
+	padding: 10px;
+	-webkit-transition: all 0.1s ease-in-out;
+	width: 70px auto;
+    outline: 0;
 }
 
 button:hover
 {
-   cursor: pointer;
-   box-shadow: 0 0 10px #fe7515;
-   border: 2px solid #DB4105;
-  -webkit-transition: all 0.1s ease-in-out;
-  -moz-transition: all 0.1s ease-in-out;
-  -o-transition: all 0.1s ease-in-out;
+	border: 2px solid #DB4105;
+	box-shadow: 0 0 10px #fe7515;
+	cursor: pointer;
+	-moz-transition: all 0.1s ease-in-out;
+	-o-transition: all 0.1s ease-in-out;
+	-webkit-transition: all 0.1s ease-in-out;
 }
 
 td.answer > button
 {
-  background-color: #fafafa;
+	background-color: #fafafa;
+}
+
+.questionmark2
+{
+    margin-left: -90px;
 }
 
 .criterium
 {
-    color: #DB4105;
+	color: #DB4105;
 }
 
 .observation
 {
-   padding: 10px;
-   height: auto;
-   margin: 10px;
-   background-color: #ededed;
-   font-size: 20px;
+	background-color: #ededed;
+	font-size: 20px;
+	height: auto;
+	margin: 10px;
+	padding: 10px;
 }
 
-label.done button, label.notDone button{
-    box-shadow: 0 0 10px #fe7515;
-   border: 2px solid #DB4105;
-   -webkit-transition: all 0.1s ease-in-out;
-   -moz-transition: all 0.1s ease-in-out;
-   -o-transition: all 0.1s ease-in-out;
-   outline: 0;
+label.done button, label.notDone button
+{
+	border: 2px solid #DB4105;
+	box-shadow: 0 0 10px #fe7515;
+	-moz-transition: all 0.1s ease-in-out;
+	-o-transition: all 0.1s ease-in-out;
+	outline: 0;
+	-webkit-transition: all 0.1s ease-in-out;
 }
