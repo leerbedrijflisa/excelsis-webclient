@@ -62,10 +62,9 @@ ul.results > li
     margin: 10px;
     padding: 10px;
     max-width: 250px;
-    -webkit-transition: all 0.2s ease-in-out;
-   -moz-transition: all 0.2s ease-in-out;
-   -ms-transition: all 0.2s ease-in-out;
-   -o-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.1s ease-in-out;
+   -moz-transition: all 0.1s ease-in-out;
+   -o-transition: all 0.1s ease-in-out;
 }
 
 ul.results > li:hover 
@@ -74,9 +73,9 @@ ul.results > li:hover
     cursor: pointer;
     box-shadow: 0 0 5px #fe7515;
     border: 1px solid #DB4105;
-   -webkit-transition: all 0.2s ease-in-out;
-   -moz-transition: all 0.2s ease-in-out;
-   -o-transition: all 0.2s ease-in-out;
+   -webkit-transition: all 0.1s ease-in-out;
+   -moz-transition: all 0.1s ease-in-out;
+   -o-transition: all 0.1s ease-in-out;
 }
 
 ul li
@@ -121,7 +120,7 @@ ul li a
    padding: 5px;
    color: #DB4105;
    font-weight: bold;
-   transition: all 0.2s ease;
+   transition: all 0.1s ease;
    opacity: 1.0;
 }
 
@@ -170,7 +169,7 @@ td.numbering
 
 td.answer
 {
-    min-width: 200px;
+    min-width: 20px;
 }
 
 td.markings
@@ -190,9 +189,9 @@ td.markings
 
 input[type=text], textarea
 {
-   -webkit-transition: all 0.2s ease-in-out;
-   -moz-transition: all 0.2s ease-in-out;
-   -o-transition: all 0.2s ease-in-out;
+   -webkit-transition: all 0.1s ease-in-out;
+   -moz-transition: all 0.1s ease-in-out;
+   -o-transition: all 0.1s ease-in-out;
    outline: none;
    font-size: 20px;
    padding: 6px;
@@ -210,27 +209,26 @@ input[type=text]:focus, textarea:focus
 
 button 
 {
+   cursor: pointer;
    padding: 10px;
+   background-color: #c6c5c5;
    border-radius: 3px;
    height: 37px auto;
    width: 70px auto;
-   border: 1px solid #ededed;
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
+   border: 2px solid #ededed;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
 }
 
 button:hover
 {
-   border: 1px solid;
-   border-color: #DB4105;
-   background-color: #f2f2f2;
    cursor: pointer;
-   box-shadow: 0 0 5px #fe7515;
-   border: 1px solid #DB4105;
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
+   box-shadow: 0 0 10px #fe7515;
+   border: 2px solid #DB4105;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
 }
 
 td.answer > button
@@ -250,4 +248,13 @@ td.answer > button
    margin: 10px;
    background-color: #ededed;
    font-size: 20px;
+}
+
+label.done button, label.notDone button{
+    box-shadow: 0 0 10px #fe7515;
+   border: 2px solid #DB4105;
+   -webkit-transition: all 0.1s ease-in-out;
+   -moz-transition: all 0.1s ease-in-out;
+   -o-transition: all 0.1s ease-in-out;
+   outline: 0;
 }
