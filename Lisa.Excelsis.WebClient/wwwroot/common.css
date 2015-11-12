@@ -186,6 +186,11 @@ td.markings
 	padding: 0;
 }
 
+.explanation
+{
+    display: none;
+}
+
 input[type=text], textarea
 {
 	border: 1px solid #DDDDDD;

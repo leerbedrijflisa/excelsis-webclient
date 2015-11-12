@@ -19,7 +19,11 @@
     <table class="question">
         <tr repeat.for="observation of assessment.observations" class="observation">
             <td class="numbering">${observation.criterium.order}</td>
-            <td class="description">${observation.criterium.description}</td>
+            <td class="description">${observation.criterium.description}
+                <button>Meer informatie</button></td>
+
+            <td class="explanation">${observation.criterium.explanation}</td>
+
             <td class="answer" style="white-space:nowrap">
                 <label class="questionmark1 answer" for="rating-done-${observation.criterium.order}" class.bind="observation.result == 'done' ? 'done' : 'notRated' ">
                     <button click.delegate="$parent.criteriumAnswerButton(observation.id, 'done')" class="questionmark" name="rating-${observation.criterium.order}" id="rating-done-${observation.criterium.order}">voldaan</button>
