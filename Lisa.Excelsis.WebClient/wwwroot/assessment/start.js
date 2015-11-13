@@ -66,4 +66,7 @@ export class Start{
             }
         }
     }
+  //  explanation(id){
+    //    document.getElementById("explanation"+id).style.display = "block";
+  //  }
 }

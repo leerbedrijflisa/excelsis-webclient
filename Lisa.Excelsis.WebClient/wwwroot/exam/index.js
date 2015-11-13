@@ -15,7 +15,7 @@ export class Exam{
     }
 
     activate() {
-        this.message = "Een moment alstublieft...";
+        this.message = "Een moment alstublieft.... <i class='fa fa-spinner fa-spin'></i>'";
         this.heading = "Exam";
         
         this.http.get("/assessors").then(response => {

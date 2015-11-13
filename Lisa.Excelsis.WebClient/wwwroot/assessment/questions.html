@@ -20,9 +20,9 @@
         <tr repeat.for="observation of assessment.observations" class="observation">
             <td class="numbering">${observation.criterium.order}</td>
             <td class="description">${observation.criterium.description}
-                <button>Meer informatie</button></td>
+                <button click.delegate="$parent.explanation(observation.id)">Meer informatie</button></td>
 
-            <td class="explanation">${observation.criterium.explanation}</td>
+           <!-- <td id="explanation${observation.id}" class="explanation">${observation.criterium.explanation}</td>-->
 
             <td class="answer" style="white-space:nowrap">
                 <label class="questionmark1 answer" for="rating-done-${observation.criterium.order}" class.bind="observation.result == 'done' ? 'done' : 'notRated' ">
