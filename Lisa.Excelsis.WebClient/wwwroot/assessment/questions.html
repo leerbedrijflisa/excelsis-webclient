@@ -1,30 +1,14 @@
-﻿<template>
-   <!--<ul class="question">
-        <li class="observation" repeat.for="observation of assessment.observations">
-
-                <span>${observation.criterium.order}</span>
-                <h3>${observation.criterium.description}</h3><br />
-                <input type="radio" name="rating-${observation.criterium.order}" id="rating-done-${observation.criterium.order}">
-                <label for="rating-done-${observation.criterium.order}" class="criterium">voldaan</label>
-                <input type="radio" name="rating-${observation.criterium.order}" id="rating-notdone-${observation.criterium.order}">
-                <label for="rating-notdone-${observation.criterium.order}" class="criterium">niet voldaan</label>
-                <input type="radio" name="rating-${observation.criterium.order}" id="rating-notrated-${observation.criterium.order}" checked="checked" />
-                <label for="rating-notrated-${observation.criterium.order}" class="criterium">niet beoordeeld</label>
-                <input type="checkbox" name="thumbsup-${observation.criterium.order}"><img src="Icons/ok.png">
-                <input type="checkbox" name="thumbsdown-${observation.criterium.order}"><img src="Icons/question.png">
-                <input type="checkbox" name="questionmark-${observation.criterium.order}"><img src="Icons/star.png">
-                <input type="checkbox" name="asterisk-${observation.criterium.order}"><img src="Icons/Warning_icon.png">
-        </li>
-    </ul>--> 
-    <table class="question">
+﻿<template> 
+  <table class="question">
         <tr repeat.for="observation of assessment.observations" class="observation">
             <td class="numbering">${observation.criterium.order}</td>
-            <td class="description">${observation.criterium.description}
-                <button click.delegate="$parent.explanation(observation.id)">Meer informatie</button></td>
-
-           <!-- <td id="explanation${observation.id}" class="explanation">${observation.criterium.explanation}</td>-->
-
-            <td class="answer" style="white-space:nowrap">
+            <!-- The line of code below displays the criterium -->
+            <td class="description">${observation.criterium.description}<br />
+            <!-- The lines of codes below are here to give you the option to show or hide extra information about the criterium-->
+                <i id="moreinfo${observation.id}" class="fa fa-info-circle moreinfo" click.delegate="$parent.explanationshow(observation.id)"></i></td>
+            <td><i class="fa fa-times fa-1x lessinfo" id="lessinfo${observation.id}" click.delegate="$parent.explanationhide(observation.id)"></i><div class="explanation" id="explanation${observation.id}">${observation.criterium.explanation}</div></td>
+            <!-- The code below is meant to display the "voldaan" and "niet-voldaan" buttons -->
+             <td class="answer">
                 <label class="questionmark1 answer" for="rating-done-${observation.criterium.order}" class.bind="observation.result == 'done' ? 'done' : 'notRated' ">
                     <button click.delegate="$parent.criteriumAnswerButton(observation.id, 'done')" class="questionmark" name="rating-${observation.criterium.order}" id="rating-done-${observation.criterium.order}">voldaan</button>
                 </label>           
@@ -32,6 +16,7 @@
                     <button click.delegate="$parent.criteriumAnswerButton(observation.id, 'notDone')" class="questionmark " name="rating-${observation.criterium.order}" id="rating-notdone-${observation.criterium.order}">niet voldaan</button>
                 </label>
             </td>
+            <!-- Below are the extra markings-->
             <td class="markings">
                 <input type="checkbox" name="thumbsup-${observation.criterium.order}"><img src="Icons/ok.png">
                 <input type="checkbox" name="thumbsdown-${observation.criterium.order}"><img src="Icons/question.png">
@@ -39,5 +24,5 @@
                 <input type="checkbox" name="asterisk-${observation.criterium.order}"><img src="Icons/Warning_icon.png">
             </td>
         </tr>
-    </table>
+ </table>
 </template>

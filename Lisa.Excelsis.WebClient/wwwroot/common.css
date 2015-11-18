@@ -128,11 +128,6 @@ ul li a
 	opacity: 0.5;
 }
 
-.checkboxes
-{
-	float: right;
-}
-
 select
 {
 	border: 1px solid #DB4105;
@@ -147,48 +142,6 @@ form
 {
 	margin-bottom: 10px;
 	text-align: match-parent;
-}
-
-table
-{
-	border-spacing: 0;
-	width: 100%;
-}
-
-td
-{
-	border-bottom: 1px solid #DB4105;
-	padding: 20px;
-}
-
-td.numbering
-{
-	border-right: 1px solid #DB4105;
-}
-
-td.answer
-{
-	min-width: 20px;
-}
-
-td.markings
-{
-	width: 100px;
-}
-
-.question
-{
-	border-bottom: 1px solid #DB4105;
-	border-top: 1px solid #DB4105;
-	margin-bottom: 10px;
-	margin-top: 0px;
-	overflow: hidden;
-	padding: 0;
-}
-
-.explanation
-{
-    display: none;
 }
 
 input[type=text], textarea
@@ -230,10 +183,66 @@ button:hover
 {
 	border: 2px solid #DB4105;
 	box-shadow: 0 0 10px #fe7515;
-	cursor: pointer;
 	-moz-transition: all 0.1s ease-in-out;
 	-o-transition: all 0.1s ease-in-out;
 	-webkit-transition: all 0.1s ease-in-out;
+}
+
+
+table
+{
+	border-spacing: 0;
+	width: 100%;
+}
+
+td
+{
+	border-bottom: 1px solid #DB4105;
+	padding: 10px 0px 10px 10px;
+}
+
+td.numbering
+{
+	border-right: 1px solid #DB4105;
+}
+
+td.answer
+{
+	min-width: 20px;
+}
+
+td.markings
+{
+	width: 100px;
+}
+
+.question
+{
+	border-bottom: 1px solid #DB4105;
+	border-top: 1px solid #DB4105;
+	margin-bottom: 10px;
+	margin-top: 0px;
+	overflow: hidden;
+	padding: 0;
+}
+
+.explanation
+{
+    display: none;
+    -moz-transition: all 0.1s ease-in-out;
+	-o-transition: all 0.1s ease-in-out;
+	-webkit-transition: all 0.1s ease-in-out;
+}
+
+.fa-times.lessinfo
+{
+    display: none;
+    color: red;
+}
+
+.answer
+{
+    white-space: nowrap;
 }
 
 td.answer > button
@@ -262,11 +271,16 @@ td.answer > button
     overflow: hidden;
 }
 
+.moreinfo
+{
+    color: green;
+}
+
 label.done button, label.notDone button
 {
 	border: 2px solid #DB4105;
+    outline: 0;
 	-moz-transition: all 0.1s ease-in-out;
 	-o-transition: all 0.1s ease-in-out;
-	outline: 0;
 	-webkit-transition: all 0.1s ease-in-out;
 }

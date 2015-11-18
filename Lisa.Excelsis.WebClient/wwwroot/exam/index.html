@@ -1,16 +1,20 @@
 ﻿<template>
         <h1>${heading}</h1>
 
-        <p>Selecteer hier voor welke leraar u een examen gaat invullen:</p>
-        <div id="selectBar">
-            <select value.bind="assessor" id="assessor" autofocus>
-                <option repeat.for="assessor of assessors" value="${assessor.username}">${assessor.username}</option>
-            </select>
+        <div if.bind="assessors">
+            <p>Selecteer hier voor welke leraar u een examen gaat invullen:</p>
+            <div id="selectBar">
+                <select value.bind="assessor" id="assessor" autofocus>
+                    <option repeat.for="assessor of assessors" value="${assessor.username}">${assessor.username}</option>
+                </select>
 
-            <button click.delegate="selectAssessor()">Zoek</button>
+                <button click.delegate="selectAssessor()">Zoek</button>
+            </div>
         </div>
 
-        <p>${message}</p>
+        <template if.bind="isWaiting">
+            <i class="fa fa-spinner fa-spin fa-2x"></i><br />
+        </template>
 
         <div if.bind="subjects">
             <p>Selecteer hier voor welke vak en cohort u een examen gaat invullen:</p>

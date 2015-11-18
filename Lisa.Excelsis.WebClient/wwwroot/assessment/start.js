@@ -66,7 +66,16 @@ export class Start{
             }
         }
     }
-  //  explanation(id){
-    //    document.getElementById("explanation"+id).style.display = "block";
-  //  }
+    //This function below is created to display additional information about a criterium
+    explanationshow(id){
+        document.getElementById("explanation"+id).style.display = "block";
+        document.getElementById("moreinfo"+id).style.display = "none";
+        document.getElementById("lessinfo"+id).style.display = "block";
+    }
+    //This function below is created to hide additional information about a criterium
+    explanationhide(id){
+        document.getElementById("explanation"+id).style.display = "none";
+        document.getElementById("moreinfo"+id).style.display = "block";
+        document.getElementById("lessinfo"+id).style.display = "none";
+    }
 }

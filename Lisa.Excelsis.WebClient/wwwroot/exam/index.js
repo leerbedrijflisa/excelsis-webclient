@@ -15,12 +15,12 @@ export class Exam{
     }
 
     activate() {
-        this.message = "Een moment alstublieft.... <i class='fa fa-spinner fa-spin'></i>'";
+        this.isWaiting = true;
         this.heading = "Exam";
         
         this.http.get("/assessors").then(response => {
             this.assessors = response.content;
-            this.message = null;
+            this.isWaiting = false;
         });        
         
         this.cohorts = [ "2015", "2014", "2013", "2012" ];
@@ -28,10 +28,10 @@ export class Exam{
 
     selectAssessor(){
         this.assessor = document.getElementById('assessor').value;
-        this.message = "Een moment alstublieft...";
+        this.isWaiting = true;
         this.http.get("/subjects?assessor="+this.assessor).then(response => {
             this.subjects = response.content;
-            this.message = null;
+            this.isWaiting = false;
         });
     }
 
