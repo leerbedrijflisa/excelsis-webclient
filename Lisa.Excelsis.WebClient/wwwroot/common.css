@@ -229,9 +229,6 @@ td.markings
 .explanation
 {
     display: none;
-    -moz-transition: all 0.1s ease-in-out;
-	-o-transition: all 0.1s ease-in-out;
-	-webkit-transition: all 0.1s ease-in-out;
 }
 
 .fa-times.lessinfo
