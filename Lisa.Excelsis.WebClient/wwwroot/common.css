@@ -214,7 +214,8 @@ td.answer
 
 td.markings
 {
-	width: 100px;
+	width: 136px;
+    padding-right: 15px;
 }
 
 .question
@@ -230,6 +231,17 @@ td.markings
 .explanation
 {
     display: none;
+}
+
+.fa-lg
+{
+    font-size: 15px !important;
+}
+
+.fa-lg:hover
+{
+    color: #fe7515;
+    cursor: pointer;
 }
 
 .answer
@@ -273,12 +285,6 @@ td.answer > button
 {
     display: none;
     color: red;
-    cursor: pointer;
-}
-
-.extra:hover
-{
-    color: #DB4105;
     cursor: pointer;
 }
 
