@@ -170,6 +170,7 @@ button
 	border: 2px solid #ededed;
 	border-radius: 5px;
 	cursor: pointer;
+    font-family: Verdana;
 	height: 37px auto;
 	-moz-transition: all 0.1s ease-in-out;
 	-o-transition: all 0.1s ease-in-out;
@@ -231,12 +232,6 @@ td.markings
     display: none;
 }
 
-.fa-times.lessinfo
-{
-    display: none;
-    color: red;
-}
-
 .answer
 {
     white-space: nowrap;
@@ -271,6 +266,20 @@ td.answer > button
 .moreinfo
 {
     color: green;
+    cursor: pointer;
+}
+
+.fa-times.lessinfo
+{
+    display: none;
+    color: red;
+    cursor: pointer;
+}
+
+.extra:hover
+{
+    color: #DB4105;
+    cursor: pointer;
 }
 
 label.done button, label.notDone button
