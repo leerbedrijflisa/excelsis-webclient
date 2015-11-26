@@ -1,12 +1,12 @@
 ﻿<template> 
   <table class="question">
         <tr repeat.for="observation of assessment.observations" class="observation">
-            <td class="numbering">${observation.criterium.order}</td>
+            <td class="numbering">${observation.criterion.order}</td>
             <!-- The line of code below displays the criterium -->
-            <td class="description">${observation.criterium.description}<br />
+            <td class="description">${observation.criterion.description}<br />
             <!-- The lines of codes below are here to give you the option to show or hide extra information about the criterium-->
                 <i id="moreinfo${observation.id}" class="fa fa-info-circle moreinfo" click.delegate="$parent.explanationshow(observation.id)"></i></td>
-            <td><i class="fa fa-times fa-1x lessinfo" id="lessinfo${observation.id}" click.delegate="$parent.explanationhide(observation.id)"></i><div class="explanation" id="explanation${observation.id}">${observation.criterium.explanation}</div></td>
+            <td><i class="fa fa-times fa-1x lessinfo" id="lessinfo${observation.id}" click.delegate="$parent.explanationhide(observation.id)"></i><div class="explanation" id="explanation${observation.id}">${observation.criterion.description}</div></td>
             <!-- The code below is meant to display the "voldaan" and "niet-voldaan" buttons -->
              <td class="answer">
                 <label class="questionmark1 answer" for="rating-done-${observation.criterium.order}" class.bind="observation.result == 'done' ? 'done' : 'notRated' ">

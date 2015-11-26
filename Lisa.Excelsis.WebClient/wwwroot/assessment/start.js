@@ -30,19 +30,10 @@ export class Start{
     getAssessment(id){
         this.http.get("assessments/"+id).then(response => {
             this.assessment = response.content; 
-            this.name = this.assessment.student.name;
-            this.number = this.assessment.student.number;
-            this.newDate = this.assessment.assessed.date;
-            this.newTime = this.assessment.assessed.time;
-        });
-    }   
-    getAssessment(id){
-        this.http.get("assessments/"+id).then(response => {
-            this.assessment = response.content; 
-            this.name = this.assessment.student.name;
-            this.number = this.assessment.student.number;
-            this.newDate = this.assessment.assessed.date;
-            this.newTime = this.assessment.assessed.time;
+            this.name = this.assessment.studentName;
+            this.number = this.assessment.studentNumber;
+            this.newDate = this.utils.formatDate(this.assessment.assessed);
+            this.newTime = this.utils.formatTime(this.assessment.assessed);
 
             for(var i = 0; i < this.assessment.observations.length; i++){                
                 this.assessment.observations[i].result = "notRated";

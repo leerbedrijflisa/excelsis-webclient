@@ -8,7 +8,7 @@ export class App {
 
     constructor(http){
         http.configure(x => {
-            x.withBaseUrl('http://localhost:8697/');      
+            x.withBaseUrl('http://localhost:5000/');      
             x.withHeader('Content-Type', 'application/json');
         });
     }

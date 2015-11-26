@@ -4,7 +4,7 @@
         return  (digit < 10 && digit.toString().length < 2) ? "0" + digit : digit;
     }
 
-    formatDate(date, time){
+    formatDateTime(date, time){
 
         if(date.indexOf("/") > 1)
         {
@@ -25,6 +25,16 @@
                               "-" + this.doubleDigit(splitDate[0]) +
                               "T" + this.doubleDigit(splitTime[0]) +
                               ":" + this.doubleDigit(splitTime[1]) + ":00Z";
+    }
+
+    formatDate(date){
+        var d = new Date(date);
+        return d.getDate() + "-" + (d.getMonth()+1) + "-" + d.getFullYear();
+    }
+
+    formatTime(time){
+        var d = new Date(time);
+        return this.doubleDigit((d.getHours()-1)) + ":" + this.doubleDigit(d.getMinutes());
     }
 
     spaceToDash(url){

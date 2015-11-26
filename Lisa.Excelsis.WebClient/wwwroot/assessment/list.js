@@ -1,13 +1,15 @@
 ﻿import {Router} from 'aurelia-router';
 import {HttpClient} from 'aurelia-http-client';
+import {Utils} from "utils";
 
 export class List
 {
     static inject() {
-        return [ Router, HttpClient ];
+        return [Utils, Router, HttpClient ];
     }
 
-    constructor(router, http){
+    constructor(utils,router, http){
+        this.utils = utils;
         this.http = http;
         this.router = router;
     }
@@ -17,19 +19,10 @@ export class List
 
         this.heading = "Assessments";
        
-        this.http.get("/students/").then(response => {
-            this.students = response.content;
-            this.message = null;
-        }, response => {
-            if(response.statusCode == 404){
-                this.message = "Helaas er zijn geen studenten gevonden.";
-            }
-        });
     }
     
-    showAssessments(student){
-        var Student = document.getElementById('student').value;
-        var url = (student == "student")?  "/assessments/student/"+Student : "/assessments";
+    showAssessments(){
+        var url = "/assessments?studentnumber="+this.student;
         this.http.get(url).then(response => {
             this.assessments = response.content;
             this.message = null;
@@ -41,6 +34,14 @@ export class List
             }
         });
     }
+    formatDate(date){
+        return this.utils.formatDate(date);
+    }
+
+    formatTime(time){
+        return this.utils.formatTime(time);
+    }
+
     openAssessment(name, subject, cohort, id) {
         this.router.navigateToRoute('assessmentId', { subject: subject, name: name,  cohort: cohort, assessmentid: id });
     }

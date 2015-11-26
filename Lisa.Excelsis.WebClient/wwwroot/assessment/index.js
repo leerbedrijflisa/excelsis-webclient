@@ -35,20 +35,20 @@ export class Index{
     }
 
     startAssessment() { 
-        var Content = {
-            "student": {
-                "name": this.name,
-                "number": this.number
-            },
+        var Content = {            
             "assessors": [{
                 "userName": this.assessor
             }],
-            "assessed" : this.utils.formatDate(this.newDate, this.newTime)       
+            "assessed" : this.utils.formatDateTime(this.newDate, this.newTime)       
         };
-        var url = this.utils.spaceToDash("assessments/"+this.exam.subject+"/"+this.exam.name+"/"+this.exam.cohort);
+        if(this.number != null && this.name != null){
+            Content["studentName"] = this.name;
+            Content["studentNumber"] = this.number;
+        }
+        var url = this.utils.spaceToDash("assessments/"+this.exam.subject+"/"+this.exam.cohort+"/"+this.exam.name);
         this.http.post(url, Content).then(response => {
             this.assessment = response.content;
-            this.router.navigateToRoute('assessmentId', {subject: this.exam.subject, name: this.exam.name, cohort: this.exam.cohort, assessmentid: this.assessment.id });
+            this.router.navigateToRoute('assessmentId', {subject: this.exam.subject, cohort: this.exam.cohort, name: this.exam.name, assessmentid: this.assessment.id });
         });
     }  
 }

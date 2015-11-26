@@ -30,9 +30,9 @@ namespace Lisa.Excelsis.WebApi
         public void Configure(IApplicationBuilder app)
         {
             app.UseIISPlatformHandler();
+            app.UseStaticFiles();
             app.UseCors("CorsExcelsis");
             app.UseMvcWithDefaultRoute();
-            app.UseStaticFiles();            
         }
     }
 }

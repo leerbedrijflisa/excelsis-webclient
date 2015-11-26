@@ -5,7 +5,7 @@
             <p>Selecteer hier voor welke leraar u een examen gaat invullen:</p>
             <div id="selectBar">
                 <select value.bind="assessor" id="assessor" autofocus>
-                    <option repeat.for="assessor of assessors" value="${assessor.username}">${assessor.username}</option>
+                    <option repeat.for="assessor of assessors" value="${assessor.userName}">${assessor.userName}</option>
                 </select>
 
                 <button click.delegate="selectAssessor()">Zoek</button>
@@ -21,7 +21,7 @@
 
             <div id="selectBar">
                 <select id="subject">
-                    <option repeat.for="subject of subjects" value="${subject.name}">${subject.name}</option>
+                    <option repeat.for="subject of subjects" value="${subject.subject}">${subject.subject}</option>
                 </select>
 
                 <select value.bind="cohort" id="cohort">
@@ -39,7 +39,6 @@
                 <p>Naam: ${exam.name}</p>
                 <p>Cohort: ${exam.cohort}</p>
                 <p>Crebo: ${exam.crebo}</p>
-                <p>Organisatie: ${exam.organization}</p>
             </li>
         </ul>
 

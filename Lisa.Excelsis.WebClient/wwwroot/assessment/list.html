@@ -1,26 +1,23 @@
 ﻿<template>
         <h1>Beoordelingen</h1>
     <div id="selectBar">
-        <select value.bind="student" id="student">
-            <option repeat.for="student of students" value="${student.number}">${student.name}</option>
-        </select>
-
-        <button click.delegate="showAssessments('student')">Zoek op student</button>
-        <button click.delegate="showAssessments()">Bekijk alle assessments</button>
+        <h3>Voer uw studentnummer in:</h3>
+        <input type="text" value.bind="student" />
+        <button click.delegate="showAssessments()">Zoek op student</button>
     </div>
 
     <ul class="results" id="assessments">
         <li repeat.for="assessment of assessments" click.delegate="$parent.openAssessment(assessment.exam.name, assessment.exam.subject, assessment.exam.cohort, assessment.id)">
             <p>Examen: ${assessment.exam.subject} - ${assessment.exam.name}</p>
             <p>Cohort: ${assessment.exam.cohort}</p>
-            <p>Datum: ${assessment.assessed.date}</p>
-            <p>Tijd: ${assessment.assessed.time}</p>
-            <p>Student: ${assessment.student.name}</p>
-            <p>Studentnummer: ${assessment.student.number}</p>
+            <p>Datum: ${$parent.formatDate(assessment.assessed)}</p>
+            <p>Tijd: ${$parent.formatTime(assessment.assessed)}</p>
+            <p>Student: ${assessment.studentName}</p>
+            <p>Studentnummer: ${assessment.studentNumber}</p>
             <p>Examinatoren:</p>
             <ul>
                 <li repeat.for="assessor of assessment.assessors">
-                    ${assessor.username}
+                    ${assessor.userName}
                 </li>
             </ul>
         </li>
