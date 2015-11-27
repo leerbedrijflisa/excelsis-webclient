@@ -1,9 +1,11 @@
 ﻿<template>
         <h1>Beoordelingen</h1>
     <div id="selectBar">
-        <h3>Voer uw studentnummer in:</h3>
-        <input type="text" value.bind="student" />
-        <button click.delegate="showAssessments()">Zoek op student</button>
+        <form>
+            <h3>Voer uw studentnummer in:</h3>
+            <input type="text" value.bind="student" />
+            <button type="submit" click.delegate="showAssessments()">Zoek op student</button>
+        </form>
     </div>
 
     <ul class="results" id="assessments">

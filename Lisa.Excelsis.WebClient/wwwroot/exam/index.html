@@ -7,7 +7,6 @@
                 <select value.bind="assessor" id="assessor" autofocus>
                     <option repeat.for="assessor of assessors" value="${assessor.userName}">${assessor.userName}</option>
                 </select>
-
                 <button click.delegate="selectAssessor()">Zoek</button>
             </div>
         </div>
