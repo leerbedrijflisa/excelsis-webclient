@@ -205,6 +205,7 @@ td
 td.numbering
 {
 	border-right: 1px solid #DB4105;
+    padding: 0px !important;
 }
 
 td.answer
@@ -214,7 +215,7 @@ td.answer
 
 td.markings
 {
-	width: 136px;
+	width: 200px;
     padding-right: 15px;
 }
 
@@ -235,12 +236,25 @@ td.markings
 
 .fa-lg
 {
-    font-size: 15px !important;
+    font-size: 20px !important;
+    color: #808080;
 }
 
-.fa-lg:hover
+span.checked, span.unchecked:hover
 {
     color: #fe7515;
+    cursor: pointer;
+}
+
+span.unchecked
+{
+    color: #808080;
+    cursor: pointer;
+}
+
+span.checked:hover 
+{
+    color: #ad3100;
     cursor: pointer;
 }
 
@@ -271,8 +285,8 @@ td.answer > button
 .description
 {
     text-align: left;
-    max-width: 300px;
     overflow: hidden;
+    min-width: 250px;
 }
 
 .moreinfo

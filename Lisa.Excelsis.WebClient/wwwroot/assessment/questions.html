@@ -6,31 +6,31 @@
             <td class="description">${observation.criterion.description}<br />
             <!-- The lines of codes below are here to give you the option to show or hide extra information about the criterium-->
                 <i id="moreinfo${observation.id}" class="fa fa-info-circle moreinfo" click.delegate="$parent.explanationshow(observation.id)"></i></td>
-            <td><i class="fa fa-times fa-1x lessinfo" id="lessinfo${observation.id}" click.delegate="$parent.explanationhide(observation.id)"></i><div class="explanation" id="explanation${observation.id}">${observation.criterion.description}</div></td>
+            <td><div class="explanation" id="explanation${observation.id}"><i class="fa fa-times fa-1x lessinfo" id="lessinfo${observation.id}" click.delegate="$parent.explanationhide(observation.id)"></i>${observation.criterion.description}</div></td>
             <!-- The code below is meant to display the "voldaan" and "niet-voldaan" buttons -->
              <td class="answer">
                 <label class="questionmark1 answer" for="rating-done-${observation.criterium.order}" class.bind="observation.result == 'done' ? 'done' : 'notRated' ">
-                    <button click.delegate="$parent.criteriumAnswerButton(observation.id, 'done')" class="questionmark" name="rating-${observation.criterium.order}" id="rating-done-${observation.criterium.order}">voldaan</button>
+                    <button click.delegate="$parent.criteriumAnswerButton(observation.id, 'done')" class="questionmark" name="rating-${observation.criterion.order}" id="rating-done-${observation.criterion.order}">voldaan</button>
                 </label>           
                 <label class="questionmark2 answer" for="rating-notdone-${observation.criterium.order}" class.bind="observation.result == 'notDone' ? 'notDone' : 'notRated' ">
-                    <button click.delegate="$parent.criteriumAnswerButton(observation.id, 'notDone')" class="questionmark " name="rating-${observation.criterium.order}" id="rating-notdone-${observation.criterium.order}">niet voldaan</button>
+                    <button click.delegate="$parent.criteriumAnswerButton(observation.id, 'notDone')" class="questionmark " name="rating-${observation.criterion.order}" id="rating-notdone-${observation.criterion.order}">niet voldaan</button>
                 </label>
             </td>
             <!-- Below are the extra markings-->
             <td class="markings">
-                <span class="fa-stack fa-lg">
+                <span class="fa-stack fa-lg" class.bind="observation.marks[0] == 'checked' ? 'checked' : 'unchecked' " click.delegate="$parent.markings(observation.id, 0)" name="rating-${observation.criterium.marks}" id="checked${observation.criterion.order}">
                     <i class="fa fa-square-o fa-stack-2x"></i>
                     <i class="fa fa-check-square-o extra"></i>
                 </span>
-                <span class="fa-stack fa-lg">
+                <span class="fa-stack fa-lg" class.bind="observation.marks[1] == 'checked' ? 'checked' : 'unchecked' " click.delegate="$parent.markings(observation.id, 1)" name="rating-${observation.criterium.marks}" id="checked${observation.criterion.order}">
                     <i class="fa fa-square-o fa-stack-2x"></i>
                     <i class="fa fa-question-circle extra"></i>
                 </span>
-                <span class="fa-stack fa-lg">
+                <span class="fa-stack fa-lg" class.bind="observation.marks[2] == 'checked' ? 'checked' : 'unchecked' " click.delegate="$parent.markings(observation.id, 2)" name="rating-${observation.criterium.marks}" id="checked${observation.criterion.order}">
                     <i class="fa fa-square-o fa-stack-2x"></i>
                     <i class="fa fa-star extra"></i>
                 </span>
-                <span class="fa-stack fa-lg">
+                <span class="fa-stack fa-lg" class.bind="observation.marks[3] == 'checked' ? 'checked' : 'unchecked' " click.delegate="$parent.markings(observation.id, 3)" name="rating-${observation.criterium.marks}" id="checked${observation.criterion.order}">
                     <i class="fa fa-square-o fa-stack-2x"></i>
                     <i class="fa fa-exclamation-triangle extra"></i>
                 </span>

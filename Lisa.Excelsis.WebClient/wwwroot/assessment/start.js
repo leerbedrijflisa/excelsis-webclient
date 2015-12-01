@@ -37,10 +37,15 @@ export class Start{
 
             for(var i = 0; i < this.assessment.observations.length; i++){                
                 this.assessment.observations[i].result = "notRated";
+                this.assessment.observations[i].marks = new Array();
+                for(var x = 0; x < 4; x++){                   
+                    this.assessment.observations[i].marks[x] = "unchecked";
+                }
             }
         });
     }  
 
+    //The function below is to have the buttons on the observation page to tell if the criteria is done/not done.
     criteriumAnswerButton(id, name){
         for(var i = 0; i < this.assessment.observations.length; i++){ 
             if(this.assessment.observations[i].id == id){
@@ -57,12 +62,28 @@ export class Start{
             }
         }
     }
+
+    //The function below is to display the markings properly on the observation page
+    markings(id, x){
+        for(var i = 0; i < this.assessment.observations.length; i++){ 
+            if(this.assessment.observations[i].id == id){                
+                if((this.assessment.observations[i].marks[x] != "checked")){
+                    this.assessment.observations[i].marks[x] = "checked";
+                }
+                else if((this.assessment.observations[i].marks[x] != "unchecked")){
+                    this.assessment.observations[i].marks[x] = "unchecked";
+                }                
+            }
+        }
+    }
+
     //This function below is created to display additional information about a criterium
     explanationshow(id){
         document.getElementById("explanation"+id).style.display = "block";
         document.getElementById("moreinfo"+id).style.display = "none";
         document.getElementById("lessinfo"+id).style.display = "block";
     }
+
     //This function below is created to hide additional information about a criterium
     explanationhide(id){
         document.getElementById("explanation"+id).style.display = "none";
