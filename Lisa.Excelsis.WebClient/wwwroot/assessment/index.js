@@ -34,21 +34,30 @@ export class Index{
         this.assessor = params.assessor;
     }
 
-    startAssessment() { 
+    startAssessment() {  
         var Content = {            
-            "assessors": [{
-                "userName": this.assessor
-            }],
-            "assessed" : this.utils.formatDateTime(this.newDate, this.newTime)       
+            "assessors": [this.assessor],
+            "assessed" : this.utils.formatDateTime(this.newDate, this.newTime),     
+            "student" : new Object()
         };
-        if(this.number != null && this.name != null){
-            Content["studentName"] = this.name;
-            Content["studentNumber"] = this.number;
+        if(this.number != null || this.name != null){
+            Content.student["name"] = this.name;
+            Content.student["number"] = this.number;
         }
+             
         var url = this.utils.spaceToDash("assessments/"+this.exam.subject+"/"+this.exam.cohort+"/"+this.exam.name);
         this.http.post(url, Content).then(response => {
             this.assessment = response.content;
             this.router.navigateToRoute('assessmentId', {subject: this.exam.subject, cohort: this.exam.cohort, name: this.exam.name, assessmentid: this.assessment.id });
         });
-    }  
+
+       //, response => {
+            //    if(response.httpstatuscode == 400){
+            //        if(response.content.code == 1111){
+            //            var message = "het veld " + response.content.value.field + " is verplicht.";
+            //        }
+            //    }
+            //    this.assessment = response.content;           
+            //});       
+    }
 }

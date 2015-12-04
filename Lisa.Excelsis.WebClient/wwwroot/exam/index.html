@@ -20,7 +20,7 @@
 
             <div id="selectBar">
                 <select id="subject">
-                    <option repeat.for="subject of subjects" value="${subject.subject}">${subject.subject}</option>
+                    <option repeat.for="subject of subjects" value="${subject.name}">${subject.name}</option>
                 </select>
 
                 <select value.bind="cohort" id="cohort">

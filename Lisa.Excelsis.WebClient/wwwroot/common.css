@@ -189,47 +189,40 @@ button:hover
 	-webkit-transition: all 0.1s ease-in-out;
 }
 
-
-table
+.questions, .categories, .categories > .observations, .categories > .observations > .observation
 {
-	border-spacing: 0;
-	width: 100%;
+    width: 100%;
+    list-style-type: none;
+    margin:0;
+    padding: 0px;
+}
+.categories > .category
+{
+    background-color: #ededed;
+    padding: 8px;
+    margin: 0;
+    margin-top: 20px;
 }
 
-td
+.categories > .category > .index
 {
-	border-bottom: 1px solid #DB4105;
-	padding: 10px 0px 10px 10px;
+    float: left;
 }
 
-td.numbering
+.categories > .observations
 {
-	border-right: 1px solid #DB4105;
-    padding: 0px !important;
+    background-color: #ededed;
+    padding: 8px;
 }
-
-td.answer
+.categories > .observations > .observation > .numbering,
+.categories > .observations > .observation > .title,
+.categories > .observations > .observation > .info,
+.categories > .observations > .observation > .answer,
+.categories > .observations > .observation > .markings
 {
-	min-width: 20px;
+  display: inline-block; 
 }
-
-td.markings
-{
-	width: 200px;
-    padding-right: 15px;
-}
-
-.question
-{
-	border-bottom: 1px solid #DB4105;
-	border-top: 1px solid #DB4105;
-	margin-bottom: 10px;
-	margin-top: 0px;
-	overflow: hidden;
-	padding: 0;
-}
-
-.explanation
+.description
 {
     display: none;
 }
@@ -263,20 +256,6 @@ span.checked:hover
     white-space: nowrap;
 }
 
-td.answer > button
-{
-	background-color: #fafafa;
-}
-
-.observation
-{
-	background-color: #ededed;
-	font-size: 20px;
-	height: auto;
-	margin: 10px;
-	padding: 10px;
-}
-
 .questionmark2
 {
     margin-left: -80px;
@@ -300,6 +279,11 @@ td.answer > button
     display: none;
     color: red;
     cursor: pointer;
+}
+
+.info
+{
+    font-size: 25px;
 }
 
 label.done button, label.notDone button

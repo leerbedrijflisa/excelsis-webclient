@@ -30,16 +30,18 @@ export class Start{
     getAssessment(id){
         this.http.get("assessments/"+id).then(response => {
             this.assessment = response.content; 
-            this.name = this.assessment.studentName;
-            this.number = this.assessment.studentNumber;
+            this.name = this.assessment.student.name;
+            this.number = this.assessment.student.number;
             this.newDate = this.utils.formatDate(this.assessment.assessed);
             this.newTime = this.utils.formatTime(this.assessment.assessed);
 
-            for(var i = 0; i < this.assessment.observations.length; i++){                
-                this.assessment.observations[i].result = "notRated";
-                this.assessment.observations[i].marks = new Array();
-                for(var x = 0; x < 4; x++){                   
-                    this.assessment.observations[i].marks[x] = "unchecked";
+            for(var a = 0; a < this.assessment.categories.length; a++){       
+                for(var b = 0; b < this.assessment.categories[a].observations.length; b++){           
+                    this.assessment.categories[a].observations[b].result = "notRated";
+                    this.assessment.categories[a].observations[b].marks = new Array();
+                    for(var x = 0; x < 4; x++){                   
+                        this.assessment.categories[a].observations[b].marks[x] = "unchecked";
+                    }
                 }
             }
         });
@@ -47,32 +49,35 @@ export class Start{
 
     //The function below is to have the buttons on the observation page to tell if the criteria is done/not done.
     criteriumAnswerButton(id, name){
-        for(var i = 0; i < this.assessment.observations.length; i++){ 
-            if(this.assessment.observations[i].id == id){
-                if((this.assessment.observations[i].result == "done" && name == "done") || (this.assessment.observations[i].result == "notDone" && name == "notDone")){
-                    this.assessment.observations[i].result = "notRated";
+        for(var a = 0; a < this.assessment.categories.length; a++){       
+            for(var b = 0; b < this.assessment.categories[a].observations.length; b++){  
+                if(this.assessment.categories[a].observations[b].id == id){
+                    if((this.assessment.categories[a].observations[b].result == "done" && name == "done") || (this.assessment.categories[a].observations[b].result == "notDone" && name == "notDone")){
+                        this.assessment.categories[a].observations[b].result = "notRated";
+                    }
+                    else if((this.assessment.categories[a].observations[b].result == "done" && name != "done") || (this.assessment.categories[a].observations[b].result == "notRated" && name != "done")){
+                        this.assessment.categories[a].observations[b].result = "notDone";
+                    }
+                    else if((this.assessment.categories[a].observations[b].result == "notDone" && name != "notDone") || (this.assessment.categories[a].observations[b].result == "notRated" && name != "notDone")){
+                        this.assessment.categories[a].observations[b].result = "done";
+                    }
                 }
-                else if((this.assessment.observations[i].result == "done" && name != "done") || (this.assessment.observations[i].result == "notRated" && name != "done")){
-                    this.assessment.observations[i].result = "notDone";
-                }
-                else if((this.assessment.observations[i].result == "notDone" && name != "notDone") || (this.assessment.observations[i].result == "notRated" && name != "notDone")){
-                    this.assessment.observations[i].result = "done";
-                }
-
             }
         }
     }
 
     //The function below is to display the markings properly on the observation page
     markings(id, x){
-        for(var i = 0; i < this.assessment.observations.length; i++){ 
-            if(this.assessment.observations[i].id == id){                
-                if((this.assessment.observations[i].marks[x] != "checked")){
-                    this.assessment.observations[i].marks[x] = "checked";
+        for(var a = 0; a < this.assessment.categories.length; a++){       
+            for(var b = 0; b < this.assessment.categories[a].observations.length; b++){  
+                if(this.assessment.categories[a].observations[b].id == id){                
+                    if((this.assessment.categories[a].observations[b].marks[x] != "checked")){
+                        this.assessment.categories[a].observations[b].marks[x] = "checked";
+                    }
+                    else if((this.assessment.categories[a].observations[b].marks[x] != "unchecked")){
+                        this.assessment.categories[a].observations[b].marks[x] = "unchecked";
+                    }                
                 }
-                else if((this.assessment.observations[i].marks[x] != "unchecked")){
-                    this.assessment.observations[i].marks[x] = "unchecked";
-                }                
             }
         }
     }
