@@ -14,9 +14,14 @@
                     <i class="fa fa-times fa-1x lessinfo" id="lessinfo${observation.id}" click.delegate="$parent.explanationhide(observation.id)"></i>
                 </div>
 
-                <span class="title">${observation.criterion.title} </span>  
+                <span class="title">${observation.criterion.title} </span>
+            <li>
+                <div class="description">
+                    ${observation.criterion.description}${observation.criterion.description}${observation.criterion.description}${observation.criterion.description}${observation.criterion.description}
+                </div>
+            </li><hr />
                              
-              
+              <li>
                 <div class="answer">
                     <label class="questionmark1 answer" for="rating-done-${observation.criterion.order}" class.bind="observation.result == 'done' ? 'done' : 'notRated' ">
                         <button click.delegate="$parent.criteriumAnswerButton(observation.id, 'done')" class="questionmark" name="rating-${observation.criterion.order}" id="rating-done-${observation.criterion.order}">voldaan</button>
@@ -43,11 +48,7 @@
                         <i class="fa fa-exclamation-triangle extra"></i>
                     </span>
                 </div>
-            </li>
-            <li>
-                <div class="description">
-                    ${observation.criterion.description}
-                </div>                
+                  </li>
             </li>
         </ul>
       </li>

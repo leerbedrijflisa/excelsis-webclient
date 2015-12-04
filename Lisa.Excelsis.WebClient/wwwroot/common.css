@@ -3,9 +3,10 @@
 	font-family: 'Open Sans', sans-serif;
 	font-size: 10pt;
 	margin: 0;
+    padding: 0;
 	min-width: 666px;
-	padding: 0;
 	text-align: center;
+    overflow-x: hidden;
 }
 
 form div
@@ -202,6 +203,7 @@ button:hover
     padding: 8px;
     margin: 0;
     margin-top: 20px;
+    border: 2px solid #DB4105;
 }
 
 .categories > .category > .index
@@ -212,8 +214,16 @@ button:hover
 .categories > .observations
 {
     background-color: #ededed;
-    padding: 8px;
+    padding-top: 5px;
+    border-bottom: 2px solid #DB4105;
+
 }
+
+.categories > .observations > .observation
+{
+    padding-left: 10px;
+}
+
 .categories > .observations > .observation > .numbering,
 .categories > .observations > .observation > .title,
 .categories > .observations > .observation > .info,
@@ -222,9 +232,28 @@ button:hover
 {
   display: inline-block; 
 }
+
+.numbering, .title
+{
+    font-size: 22px;
+}
+
 .description
 {
-    display: none;
+    display: block;
+    margin: 0;
+    font-style: italic;
+}
+
+.markings
+{
+    padding: 0;
+    margin-left: -50px;
+}
+
+ul.li
+{
+    margin: 0;
 }
 
 .fa-lg
