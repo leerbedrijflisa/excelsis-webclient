@@ -12,28 +12,21 @@ export class questions{
         this.assessment = params;
     }
 
-    criteriumAnswerButton(name){
-        switch(name) {
-            case "done":
-                if(done){
-                    done = false;
-                    rated = false;
-                }else{
-                    done = true;
-                    notDone = false;
-                    rated = true;
+    criteriumAnswerButton(id, name){
+        for(var a = 0; a < this.assessment.categories.length; a++){       
+            for(var b = 0; b < this.assessment.categories[a].observations.length; b++){  
+                if(this.assessment.categories[a].observations[b].id == id){
+                    if((this.assessment.categories[a].observations[b].result == "done" && name == "done") || (this.assessment.categories[a].observations[b].result == "notDone" && name == "notDone")){
+                        this.assessment.categories[a].observations[b].result = "notRated";
+                    }
+                    else if((this.assessment.categories[a].observations[b].result == "done" && name != "done") || (this.assessment.categories[a].observations[b].result == "notRated" && name != "done")){
+                        this.assessment.categories[a].observations[b].result = "notDone";
+                    }
+                    else if((this.assessment.categories[a].observations[b].result == "notDone" && name != "notDone") || (this.assessment.categories[a].observations[b].result == "notRated" && name != "notDone")){
+                        this.assessment.categories[a].observations[b].result = "done";
+                    }
                 }
-                break;
-            case "notDone":
-                if(notDone){
-                    notDone = false;
-                    rated = false;
-                }else{
-                    notDone = true;
-                    done = false;
-                    rated = true;
-                }
-                break;
-        }   
+            }
+        }
     }
 }

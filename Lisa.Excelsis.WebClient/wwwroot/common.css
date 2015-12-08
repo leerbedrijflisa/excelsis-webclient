@@ -171,13 +171,13 @@ button
 	border: 2px solid #ededed;
 	border-radius: 5px;
 	cursor: pointer;
-    font-family: Verdana;
+    font-family: 'Segoe UI';
 	height: 37px auto;
+    width: 70px auto;
 	-moz-transition: all 0.1s ease-in-out;
 	-o-transition: all 0.1s ease-in-out;
 	padding: 10px;
 	-webkit-transition: all 0.1s ease-in-out;
-	width: 70px auto;
     outline: 0;
 }
 
@@ -192,11 +192,17 @@ button:hover
 
 .questions, .categories, .categories > .observations, .categories > .observations > .observation
 {
-    width: 100%;
     list-style-type: none;
+    width: 100%;
     margin:0;
     padding: 0px;
 }
+
+.observations
+{
+    background-image: url(img/bg.png);
+}
+
 .categories > .category
 {
     background-color: #ededed;
@@ -259,7 +265,6 @@ ul.li
 .fa-lg
 {
     font-size: 20px !important;
-    color: #808080;
 }
 
 span.checked, span.unchecked:hover
@@ -296,6 +301,12 @@ span.checked:hover
     overflow: hidden;
     min-width: 250px;
 }
+
+button
+{
+    background-color: #ededed;
+}
+
 
 .moreinfo
 {
