@@ -198,6 +198,12 @@ button:hover
     padding: 0px;
 }
 
+.index
+{
+    float: left;
+    left: 0;
+}
+
 .observations
 {
     background-image: url(img/bg.png);
@@ -246,9 +252,11 @@ button:hover
 
 .description
 {
-    display: block;
+    text-align: center !important;
+    display: none;
     margin: 0;
     font-style: italic;
+    font-size: 20px;
 }
 
 .markings
@@ -333,4 +341,9 @@ label.done button, label.notDone button
 	-moz-transition: all 0.1s ease-in-out;
 	-o-transition: all 0.1s ease-in-out;
 	-webkit-transition: all 0.1s ease-in-out;
+}
+
+.selectBarStudent, .selectBarAssessor
+{
+    display: none;
 }

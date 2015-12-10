@@ -1,10 +1,25 @@
 ﻿<template>
         <h1>Beoordelingen</h1>
-    <div id="selectBar">
+
+    <div id="searchSelect" class="searchSelect">
+        <h3>Hoe wilt U zoeken?</h3><br />
+        <button id="studentSearch" click.delegate="studentSearch()" >Op student</button>
+        <button id="assessorSearch" click.delegate="assessorSearch()">Op examinator</button>
+    </div>
+
+    <div id="selectBarAssessor" class="selectBarAssessor">
+        <p>Op welke examinator wilt U beoordelingen zoeken?</p>
+            <select value.bind="assessor" id="assessor" autofocus>
+                <option repeat.for="assessor of assessors" value="${assessor.userName}">${assessor.userName}</option>
+            </select>
+            <button click.delegate="selectAssessor()">Zoek</button>
+    </div>
+
+    <div id="selectBarStudent" class="selectBarStudent">
         <form>
-            <h3>Voer uw studentnummer in:</h3>
+            <h3>Op welk studentnummer wilt U zoeken?</h3>
             <input type="text" value.bind="student" />
-            <button type="submit" click.delegate="showAssessments()">Zoek op student</button>
+            <button type="submit" click.delegate="showAssessmentsStudentNumber()">Zoek op student</button>
         </form>
     </div>
 
@@ -14,8 +29,8 @@
             <p>Cohort: ${assessment.exam.cohort}</p>
             <p>Datum: ${$parent.formatDate(assessment.assessed)}</p>
             <p>Tijd: ${$parent.formatTime(assessment.assessed)}</p>
-            <p>Student: ${assessment.studentName}</p>
-            <p>Studentnummer: ${assessment.studentNumber}</p>
+            <p>Student: ${assessment.student.name}</p>
+            <p>Studentnummer: ${assessment.student.number}</p>
             <p>Examinatoren:</p>
             <ul>
                 <li repeat.for="assessor of assessment.assessors">

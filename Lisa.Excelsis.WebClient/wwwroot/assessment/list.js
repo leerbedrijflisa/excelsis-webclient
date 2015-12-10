@@ -16,12 +16,13 @@ export class List
 
     activate() {
         this.message = "Studenten worden geladen. Een moment geduld astublieft...";
-
         this.heading = "Assessments";
-       
+        this.http.get("/assessors").then(response => {
+            this.assessors = response.content;
+        });
     }
     
-    showAssessments(){
+    showAssessmentsStudentNumber(){
         var url = "/assessments?studentnumber="+this.student;
         this.http.get(url).then(response => {
             this.assessments = response.content;
@@ -34,6 +35,32 @@ export class List
             }
         });
     }
+
+    selectAssessor(){
+        this.assessor = document.getElementById('assessor').value;
+        this.http.get("/assessments?assessor="+this.assessor).then(response => {
+            this.assessments = response.content
+            document.getElementById("assessments").style.display = "block";
+        }, response => {
+            if(response.statusCode == 404){
+                this.messageExam = "Helaas er zijn geen examens gevonden.";
+            }
+        });
+    }
+
+    studentSearch()
+    {
+        document.getElementById("selectBarStudent").style.display = "block";
+        document.getElementById("searchSelect").style.display = "none";
+    }
+
+    assessorSearch()
+    {
+        document.getElementById("selectBarAssessor").style.display = "block";
+        document.getElementById("searchSelect").style.display = "none";
+    }
+
+
     formatDate(date){
         return this.utils.formatDate(date);
     }
