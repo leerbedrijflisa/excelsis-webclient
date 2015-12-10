@@ -41,6 +41,7 @@ export class List
         this.http.get("/assessments?assessor="+this.assessor).then(response => {
             this.assessments = response.content
             document.getElementById("assessments").style.display = "block";
+            document.getElementById("selectBarAssessor").style.display = "none";
         }, response => {
             if(response.statusCode == 404){
                 this.messageExam = "Helaas er zijn geen examens gevonden.";

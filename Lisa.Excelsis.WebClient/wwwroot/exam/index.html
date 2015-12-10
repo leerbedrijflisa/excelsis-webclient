@@ -1,7 +1,7 @@
 ﻿<template>
         <h1>${heading}</h1>
 
-        <div if.bind="assessors">
+        <div id="selectAssessor" if.bind="assessors">
             <p>Selecteer hier voor welke leraar u een examen gaat invullen:</p>
             <div id="selectBar">
                 <select value.bind="assessor" id="assessor" autofocus>

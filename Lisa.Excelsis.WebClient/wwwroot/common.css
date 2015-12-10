@@ -42,6 +42,11 @@ h1, h2
 	padding: 10px;
 }
 
+h3
+{
+    margin: 0;
+}
+
 ul
 {
 	margin: 0;
@@ -58,8 +63,12 @@ ul.results
 ul.results > li
 {
 	border: 1px solid black;
+    background-image: url(img/bg.png);
+    color: black;
+    font-weight: bold;
 	border-radius: 3px;
 	margin: 10px;
+    min-width: 250px;
 	max-width: 250px;
 	-moz-transition: all 0.1s ease-in-out;
 	-o-transition: all 0.1s ease-in-out;
@@ -108,7 +117,7 @@ ul li a
 
 .navigation li
 {
-	background-color: #ededed;
+	background-image: url(img/bg.png);
 	border-bottom: 1px solid #DB4105;
 	margin: 0;
 	padding: 10px;
@@ -275,10 +284,15 @@ ul.li
     font-size: 20px !important;
 }
 
-span.checked, span.unchecked:hover
+span.checked
 {
     color: #fe7515;
     cursor: pointer;
+}
+
+span.unchecked:hover
+{
+    color: #ad3100;
 }
 
 span.unchecked
@@ -289,7 +303,7 @@ span.unchecked
 
 span.checked:hover 
 {
-    color: #ad3100;
+    color: #fe7515;
     cursor: pointer;
 }
 

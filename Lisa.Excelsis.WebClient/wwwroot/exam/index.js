@@ -30,6 +30,7 @@ export class Exam{
         this.assessor = document.getElementById('assessor').value;
         this.isWaiting = true;
         this.http.get("/subjects?assessor="+this.assessor).then(response => {
+            document.getElementById("selectAssessor").style.display = "none";
             this.subjects = response.content;
             this.isWaiting = false;
         });
