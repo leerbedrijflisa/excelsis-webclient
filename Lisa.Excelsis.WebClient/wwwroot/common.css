@@ -138,6 +138,12 @@ ul li a
 	opacity: 0.5;
 }
 
+.studentInfo
+{
+    background-image: url(img/bg2.png);
+    padding-bottom: 15px;
+}
+
 select
 {
 	border: 1px solid #DB4105;
@@ -157,7 +163,7 @@ form
 input[type=text], textarea
 {
 	border: 1px solid #DDDDDD;
-	border-radius: 3px;
+	border-radius: 5px;
 	font-size: 20px;
 	margin: 5px;
 	-moz-transition: all 0.1s ease-in-out;
