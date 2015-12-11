@@ -15,11 +15,11 @@
                 <span class="title">${observation.criterion.title} </span>  <br /> 
                 <br />      
                 <div class="answer">
-                    <label class="questionmark1 answer" for="rating-done-${observation.criterion.order}" class.bind="observation.result == 'done' ? 'done' : 'notRated' ">
-                        <button click.delegate="$parent.$parent.criteriumAnswerButton(observation.id, 'done')" class="questionmark" name="rating-${observation.criterion.order}" id="rating-done-${observation.criterion.order}">voldaan</button>
+                    <label class="questionmark1 answer" for="rating-done-${observation.criterion.order}" class.bind="observation.result == 'seen' ? 'seen' : 'notrated' ">
+                        <button click.delegate="$parent.$parent.criteriumAnswerButton(observation.id, 'seen')" class="questionmark" name="rating-${observation.criterion.order}" id="rating-done-${observation.criterion.order}">voldaan</button>
                     </label>
-                    <label class="questionmark2 answer" for="rating-notdone-${observation.criterion.order}" class.bind="observation.result == 'notDone' ? 'notDone' : 'notRated' ">
-                        <button click.delegate="$parent.$parent.criteriumAnswerButton(observation.id, 'notDone')" class="questionmark " name="rating-${observation.criterion.order}" id="rating-notdone-${observation.criterion.order}">niet voldaan</button>
+                    <label class="questionmark2 answer" for="rating-notdone-${observation.criterion.order}" class.bind="observation.result == 'notseen' ? 'notseen' : 'notrated' ">
+                        <button click.delegate="$parent.$parent.criteriumAnswerButton(observation.id, 'notseen')" class="questionmark " name="rating-${observation.criterion.order}" id="rating-notdone-${observation.criterion.order}">niet voldaan</button>
                     </label>
                 </div>
                 <div class="markings">

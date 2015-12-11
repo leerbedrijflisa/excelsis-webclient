@@ -1,13 +1,15 @@
 ﻿import {HttpClient} from 'aurelia-http-client';
-import {Utils} from "utils";
+import {Utils} from "misc/utils";
+import {Data} from "misc/data";
 
 export class Start{
 
     static inject() {
-        return [ Utils, HttpClient ];
+        return [Data, Utils, HttpClient ];
     }
 
-    constructor(utils, http) {
+    constructor(data, utils, http) {
+        this.data = data;
         this.utils = utils;
         this.http = http;
     }
@@ -36,8 +38,10 @@ export class Start{
             this.newTime = this.utils.formatTime(this.assessment.assessed);
 
             for(var a = 0; a < this.assessment.categories.length; a++){       
-                for(var b = 0; b < this.assessment.categories[a].observations.length; b++){           
-                    this.assessment.categories[a].observations[b].result = "notRated";
+                for(var b = 0; b < this.assessment.categories[a].observations.length; b++){ 
+                    if(this.assessment.categories[a].observations[b].result == ""){
+                        this.assessment.categories[a].observations[b].result = "notrated";
+                    }
                     this.assessment.categories[a].observations[b].marks = new Array();
                     for(var x = 0; x < 4; x++){                   
                         this.assessment.categories[a].observations[b].marks[x] = "unchecked";
@@ -52,14 +56,20 @@ export class Start{
         for(var a = 0; a < this.assessment.categories.length; a++){       
             for(var b = 0; b < this.assessment.categories[a].observations.length; b++){  
                 if(this.assessment.categories[a].observations[b].id == id){
-                    if((this.assessment.categories[a].observations[b].result == "done" && name == "done") || (this.assessment.categories[a].observations[b].result == "notDone" && name == "notDone")){
-                        this.assessment.categories[a].observations[b].result = "notRated";
+                    if((this.assessment.categories[a].observations[b].result == "seen" && name == "seen") || (this.assessment.categories[a].observations[b].result == "notseen" && name == "notseen")){
+                        this.assessment.categories[a].observations[b].result = "notrated";
+                        var data = this.data.CreatePatch("replace", "observations", "result", id, "notrated");
+                        this.data.PatchAssessment(this.assessment.id, data);
                     }
-                    else if((this.assessment.categories[a].observations[b].result == "done" && name != "done") || (this.assessment.categories[a].observations[b].result == "notRated" && name != "done")){
-                        this.assessment.categories[a].observations[b].result = "notDone";
+                    else if((this.assessment.categories[a].observations[b].result == "seen" && name != "seen") || (this.assessment.categories[a].observations[b].result == "notrated" && name != "seen")){
+                        this.assessment.categories[a].observations[b].result = "notseen";
+                        var data = this.data.CreatePatch("replace", "observations", "result", id, "notseen");
+                        this.data.PatchAssessment(this.assessment.id, data);
                     }
-                    else if((this.assessment.categories[a].observations[b].result == "notDone" && name != "notDone") || (this.assessment.categories[a].observations[b].result == "notRated" && name != "notDone")){
-                        this.assessment.categories[a].observations[b].result = "done";
+                    else if((this.assessment.categories[a].observations[b].result == "notseen" && name != "notseen") || (this.assessment.categories[a].observations[b].result == "notrated" && name != "notseen")){
+                        this.assessment.categories[a].observations[b].result = "seen";
+                        var data = this.data.CreatePatch("replace", "observations", "result", id, "seen");
+                        this.data.PatchAssessment(this.assessment.id, data);
                     }
                 }
             }
@@ -80,7 +90,7 @@ export class Start{
                 }
             }
         }
-    }
+    }    
 
     //This function below is created to display additional information about a criterium
     explanationshow(id){

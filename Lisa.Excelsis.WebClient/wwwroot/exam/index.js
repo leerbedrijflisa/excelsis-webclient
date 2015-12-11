@@ -1,6 +1,6 @@
 ﻿import {Router} from 'aurelia-router';
 import {HttpClient} from 'aurelia-http-client';
-import {Utils} from "utils";
+import {Utils} from "misc/utils";
 
 export class Exam{
     
