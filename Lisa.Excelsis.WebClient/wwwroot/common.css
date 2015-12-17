@@ -360,7 +360,7 @@ button
     font-size: 25px;
 }
 
-label.seen button, label.notseen button
+label.seen button, label.unseen button
 {
 	border: 2px solid #fe7515;
     outline: 0;
@@ -369,7 +369,7 @@ label.seen button, label.notseen button
 	-webkit-transition: all 0.1s ease-in-out;
 }
 
-.selectBarStudent, .selectBarAssessor
+.selectBarStudent, .selectBarAssessor 
 {
     display: none;
 }

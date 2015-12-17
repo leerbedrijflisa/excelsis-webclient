@@ -23,7 +23,7 @@ export class List
     }
     
     showAssessmentsStudentNumber(){
-        var url = "/assessments?studentnumber="+this.student;
+        var url = "/assessments?student="+this.student;
         this.http.get(url).then(response => {
             this.assessments = response.content;
             this.message = null;
@@ -38,7 +38,7 @@ export class List
 
     selectAssessor(){
         this.assessor = document.getElementById('assessor').value;
-        this.http.get("/assessments?assessor="+this.assessor).then(response => {
+        this.http.get("/assessments?assessors="+this.assessor).then(response => {
             this.assessments = response.content
             document.getElementById("assessments").style.display = "block";
             document.getElementById("selectBarAssessor").style.display = "none";
