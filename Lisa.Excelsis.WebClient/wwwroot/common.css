@@ -73,11 +73,11 @@ ul.results > li
     font-weight: bold;
 	border-radius: 3px;
 	margin: 10px;
+    padding: 10px;
     min-width: 250px;
 	max-width: 250px;
 	-moz-transition: all 0.1s ease-in-out;
 	-o-transition: all 0.1s ease-in-out;
-	padding: 10px;
 	-webkit-transition: all 0.1s ease-in-out;
 }
 
@@ -236,7 +236,7 @@ button:hover
     padding: 8px;
     margin: 0;
     margin-top: 20px;
-    border: 2px solid #DB4105;
+    border: 1px solid #DB4105;
 }
 
 .categories > .category > .index

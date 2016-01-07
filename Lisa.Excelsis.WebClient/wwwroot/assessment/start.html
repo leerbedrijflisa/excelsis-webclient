@@ -1,21 +1,18 @@
 ﻿<template>
         <form class="studentInfo">
-            <h1>${exam.subject} &ndash; ${exam.name}</h1>
+            <h2>${exam.subject} &ndash; ${exam.name}</h2>
             <div>
                 <label>Naam</label>
-                <input type="text" value.bind="name" onfocusout="test()">
+                <input type="text" value.bind="name">
             </div>
-
             <div>
                 <label>Studentnummer</label>
                 <input type="text" value.bind="number">
             </div>
-
             <div>
                 <label>Datum</label>
                 <input type="text" value.bind="newDate">
             </div>
-
             <div>
                 <label>Tijd</label>
                 <input type="text" value.bind="newTime">

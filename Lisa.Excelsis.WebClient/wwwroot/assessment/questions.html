@@ -1,5 +1,5 @@
 ﻿<template> 
-  <ul class="questions">
+ <ul class="questions">
       <li repeat.for="category of assessment.categories" class="categories">
         <div class="category">
             <div class="name"><span style="color:#ff6a00; font-size: 30px;">${category.name}</span></div>
@@ -23,19 +23,19 @@
                     </label>
                 </div>
                 <div class="markings">
-                    <span class="fa-stack fa-lg" class.bind="observation.markings.one ? 'checked' : 'unchecked' " click.delegate="$parent.$parent.markings(observation, 'one')" id="one">
+                    <span class="fa-stack fa-lg" class.bind="observation.markings.one ? 'checked' : 'unchecked'" click.delegate="$parent.$parent.markings(observation, 'one')" id="one">
                         <i class="fa fa-square-o fa-stack-2x"></i>
                         <i class="fa fa-check-square-o extra"></i>
                     </span>
-                    <span class="fa-stack fa-lg" class.bind="observation.markings.two ? 'checked' : 'unchecked' " click.delegate="$parent.$parent.markings(observation, 'two')" id="two">
+                    <span class="fa-stack fa-lg" class.bind="observation.markings.two ? 'checked' : 'unchecked'" click.delegate="$parent.$parent.markings(observation, 'two')" id="two">
                         <i class="fa fa-square-o fa-stack-2x"></i>
                         <i class="fa fa-question-circle extra"></i>
                     </span>
-                    <span class="fa-stack fa-lg" class.bind="observation.markings.three ? 'checked' : 'unchecked' " click.delegate="$parent.$parent.markings(observation, 'three')" id="three">
+                    <span class="fa-stack fa-lg" class.bind="observation.markings.three ? 'checked' : 'unchecked'" click.delegate="$parent.$parent.markings(observation, 'three')" id="three">
                         <i class="fa fa-square-o fa-stack-2x"></i>
                         <i class="fa fa-star extra"></i>
                     </span>
-                    <span class="fa-stack fa-lg" class.bind="observation.markings.four ? 'checked' : 'unchecked' " click.delegate="$parent.$parent.markings(observation, 'four')" id="four">
+                    <span class="fa-stack fa-lg" class.bind="observation.markings.four ? 'checked' : 'unchecked'" click.delegate="$parent.$parent.markings(observation, 'four')" id="four">
                         <i class="fa fa-square-o fa-stack-2x"></i>
                         <i class="fa fa-exclamation-triangle extra"></i>
                     </span>
@@ -47,5 +47,5 @@
                 <br />  
             </li>
         </ul>
-   </ul>
+  </ul>
 </template>
