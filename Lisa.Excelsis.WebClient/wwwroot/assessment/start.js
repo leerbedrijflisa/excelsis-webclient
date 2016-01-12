@@ -47,7 +47,25 @@ export class Start{
                 }
             }
         });
-    }  
+    } 
+    
+    //The function below is made to save the student information on an observation page
+    SaveStudentMetaData(id)
+    {
+        if (this.number != 0 && this.number.length < 8)
+        {
+            alert("The student number you have entered is too short (example 99017927)");
+        }
+        else{
+         var content = [];
+                content.push(this.data.CreateResourcePatch("replace", "studentname", this.name)[0]);
+                content.push(this.data.CreateResourcePatch("replace", "studentnumber", this.number)[0]);
+                //content.push(this.data.CreateResourcePatch("replace", "assessed", this.utils.formatDateTime(this.newDate,this.newTime))[0]);
+                this.data.PatchAssessment(id, content);
+                location.reload();
+        }
+       
+    }
 
     //The function below is to have the buttons on the observation page to tell if the criteria is done/not done.
     criteriumAnswerButton(id, name){
@@ -56,17 +74,17 @@ export class Start{
                 if(this.assessment.categories[a].observations[b].id == id){
                     if((this.assessment.categories[a].observations[b].result == "seen" && name == "seen") || (this.assessment.categories[a].observations[b].result == "unseen" && name == "unseen")){
                         this.assessment.categories[a].observations[b].result = "notrated";
-                        var data = this.data.CreatePatch("replace", "observations", "result", id, "notrated");
+                        var data = this.data.CreateChildPatch("replace", "observations", "result", id, "notrated");
                         this.data.PatchAssessment(this.assessment.id, data);
                     }
                     else if((this.assessment.categories[a].observations[b].result == "seen" && name != "seen") || (this.assessment.categories[a].observations[b].result == "notrated" && name != "seen")){
                         this.assessment.categories[a].observations[b].result = "unseen";
-                        var data = this.data.CreatePatch("replace", "observations", "result", id, "unseen");
+                        var data = this.data.CreateChildPatch("replace", "observations", "result", id, "unseen");
                         this.data.PatchAssessment(this.assessment.id, data);
                     }
                     else if((this.assessment.categories[a].observations[b].result == "unseen" && name != "unseen") || (this.assessment.categories[a].observations[b].result == "notrated" && name != "unseen")){
                         this.assessment.categories[a].observations[b].result = "seen";
-                        var data = this.data.CreatePatch("replace", "observations", "result", id, "seen");
+                        var data = this.data.CreateChildPatch("replace", "observations", "result", id, "seen");
                         this.data.PatchAssessment(this.assessment.id, data);
                     }
                 }
@@ -78,16 +96,17 @@ export class Start{
     markings(observation, mark){
         if(observation.markings[mark]){
             observation.markings[mark] = false;
-            var data = this.data.CreatePatch("remove","observations", "marks", observation.id, mark);
+            var data = this.data.CreateChildPatch("remove","observations", "marks", observation.id, mark);
             this.data.PatchAssessment(this.assessment.id, data);
         }else{
             observation.markings[mark] = true;
-            var data = this.data.CreatePatch("add","observations", "marks", observation.id, mark);
+            var data = this.data.CreateChildPatch("add","observations", "marks", observation.id, mark);
             this.data.PatchAssessment(this.assessment.id, data);
         }
         
     }
       
+    //This function below allows you to use the markings on the observation page
     fillMarks(observation){
         observation.markings = [];        
         (observation.marks.indexOf('one') != -1) ? observation.markings['one'] = true : observation.markings['one'] = false;

@@ -38,13 +38,19 @@ img
 	width: 16px;
 }
 
-h1, h2
+h1, h2, h3
 {
 	background-color: #ededed;
 	border-bottom: 1px solid #DB4105;
 	margin-bottom: 10px;
 	margin-top: 0px;
 	padding: 10px;
+}
+
+.name
+{
+    font-size: 30px;
+    color: #DB4105;
 }
 
 h3
@@ -266,9 +272,11 @@ button:hover
   display: inline-block; 
 }
 
-.numbering, .title
+.numbering
 {
-    font-size: 22px;
+    font-size: 30px;
+    font-family: Century;
+    float: left;
 }
 
 .description
@@ -285,6 +293,17 @@ button:hover
     padding: 0;
     margin-left: -50px;
 }
+
+.saveButton
+{
+    color: black;
+}
+
+.saveButton:hover
+{
+    color: green;
+}
+
 
 ul.li
 {

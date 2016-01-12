@@ -9,11 +9,19 @@ export class Data{
         this.http = http;
     }
 
-    CreatePatch(action,fieldResource, field, id, name){
+    CreateResourcePatch(action, field, value){
+        return [{
+            "action": action,
+            "field": field,
+            "value": value
+        }];
+    }
+
+    CreateChildPatch(action,fieldResource, field, id, value){
         return [{
             "action": action,
             "field": fieldResource + "/" + id + "/" + field,
-            "value": name
+            "value": value
         }];
     }
 

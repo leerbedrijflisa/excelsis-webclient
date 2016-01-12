@@ -2,12 +2,12 @@
  <ul class="questions">
       <li repeat.for="category of assessment.categories" class="categories">
         <div class="category">
-            <div class="name"><span style="color:#ff6a00; font-size: 30px;">${category.name}</span></div>
+            <div class="name">${category.name}</div>
         </div>
         <ul repeat.for="observation of category.observations" class="observations">
             <li class="observation">
                 <div class="numbering">
-                    ${$index+1}
+                    ${$index+1}.
                 </div>
                 <div class="info">
                     <i id="moreinfo${observation.id}" class="fa fa-info-circle moreinfo" click.delegate="$parent.$parent.explanationshow(observation.id)"></i>

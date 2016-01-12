@@ -34,12 +34,11 @@
             <p>Examinatoren:</p>
             <ul repeat.for="assessor of assessment.assessors">
                 <li style="">
-                    ${assessor.userName}
+                    ${assessor.firstName} ${assessor.lastName}
                     <hr />
                 </li>
             </ul>
         </li>
     </ul>
-
     <p>${messages}</p>
 </template>
