@@ -1,0 +1,51 @@
+﻿<template> 
+ <ul class="questions">
+      <li repeat.for="category of assessment.categories" class="categories">
+        <div class="category">
+            <div class="name">${category.name}</div>
+        </div>
+        <ul repeat.for="observation of category.observations" class="observations">
+            <li class="observation">
+                <div class="numbering">
+                    ${$index+1}.
+                </div>
+                <div class="info">
+                    <i id="moreinfo${observation.id}" class="fa fa-info-circle moreinfo" click.delegate="$parent.$parent.explanationshow(observation.id)"></i>
+                </div>
+                <span class="title">${observation.criterion.title} </span>  <br /> 
+                <br />      
+                <div class="answer">
+                    <label class="questionmark1 answer" for="rating-done-${observation.criterion.order}" class.bind="observation.result == 'seen' ? 'seen' : 'notrated' ">
+                        <button click.delegate="$parent.$parent.criteriumAnswerButton(observation.id, 'seen')" class="questionmark" name="rating-${observation.criterion.order}" id="rating-done-${observation.criterion.order}">voldaan</button>
+                    </label>
+                    <label class="questionmark2 answer" for="rating-notdone-${observation.criterion.order}" class.bind="observation.result == 'unseen' ? 'unseen' : 'notrated' ">
+                        <button click.delegate="$parent.$parent.criteriumAnswerButton(observation.id, 'unseen')" class="questionmark " name="rating-${observation.criterion.order}" id="rating-notdone-${observation.criterion.order}">niet voldaan</button>
+                    </label>
+                </div>
+                <div class="markings">
+                    <span class="fa-stack fa-lg" class.bind="observation.markings.one ? 'checked' : 'unchecked'" click.delegate="$parent.$parent.markings(observation, 'one')" id="one">
+                        <i class="fa fa-square-o fa-stack-2x"></i>
+                        <i class="fa fa-check-square-o extra"></i>
+                    </span>
+                    <span class="fa-stack fa-lg" class.bind="observation.markings.two ? 'checked' : 'unchecked'" click.delegate="$parent.$parent.markings(observation, 'two')" id="two">
+                        <i class="fa fa-square-o fa-stack-2x"></i>
+                        <i class="fa fa-question-circle extra"></i>
+                    </span>
+                    <span class="fa-stack fa-lg" class.bind="observation.markings.three ? 'checked' : 'unchecked'" click.delegate="$parent.$parent.markings(observation, 'three')" id="three">
+                        <i class="fa fa-square-o fa-stack-2x"></i>
+                        <i class="fa fa-star extra"></i>
+                    </span>
+                    <span class="fa-stack fa-lg" class.bind="observation.markings.four ? 'checked' : 'unchecked'" click.delegate="$parent.$parent.markings(observation, 'four')" id="four">
+                        <i class="fa fa-square-o fa-stack-2x"></i>
+                        <i class="fa fa-exclamation-triangle extra"></i>
+                    </span>
+                </div>
+                <div id="description${observation.id}" class="description">
+                    <i class="fa fa-times fa-1x lessinfo" id="lessinfo${observation.id}" click.delegate="$parent.$parent.explanationhide(observation.id)"></i>
+                    ${observation.criterion.description}${observation.criterion.description}${observation.criterion.description}${observation.criterion.description}${observation.criterion.description}
+                </div>  
+                <br />  
+            </li>
+        </ul>
+  </ul>
+</template>

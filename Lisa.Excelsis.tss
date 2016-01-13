@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<ArrayOfArrayOfArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ArrayOfArrayOfString>
+    <ArrayOfString>
+      <string>D:\PROJECTS\_LISA\Lisa.Excelsis\Lisa.Excelsis.WebApi\Controllers\AssessmentsController.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\PROJECTS\_LISA\Lisa.Excelsis\Lisa.Excelsis.WebApi\Controllers\AssessorsController.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\PROJECTS\_LISA\Lisa.Excelsis\Lisa.Excelsis.WebApi\CustomCompare.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\PROJECTS\_LISA\Lisa.Excelsis\Lisa.Excelsis.Data\ExcelsisDb.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>Lisa.Excelsis.Data\Lisa.Excelsis.Data.csproj</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\PROJECTS\_LISA\Lisa.Excelsis\Lisa.Excelsis.WebClient\project.lock.json</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\PROJECTS\_LISA\Lisa.Excelsis\Lisa.Excelsis.Data\Models\Subject.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\PROJECTS\_LISA\Lisa.Excelsis\Lisa.Excelsis.Data\Models\Student.cs</string>
+    </ArrayOfString>
+  </ArrayOfArrayOfString>
+</ArrayOfArrayOfArrayOfString>

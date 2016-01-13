@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net451": {
+      "wrappedProject": "../../Lisa.Excelsis.Data/Lisa.Excelsis.Data.csproj",
+      "bin": {
+        "assembly": "../../Lisa.Excelsis.Data/obj/{configuration}/Lisa.Excelsis.Data.dll",
+        "pdb": "../../Lisa.Excelsis.Data/obj/{configuration}/Lisa.Excelsis.Data.pdb"
+      },
+      "dependencies": {
+        "EntityFramework": "6.1.3"
+      }
+    }
+  }
+}

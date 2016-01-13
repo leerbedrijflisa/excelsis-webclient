@@ -1,0 +1,45 @@
+﻿<template>
+        <h1>${heading}</h1>
+
+        <div id="selectAssessor" if.bind="assessors">
+            <p>Selecteer hier voor welke leraar u een examen gaat invullen:</p>
+            <div id="selectBar">
+                <select value.bind="assessor" id="assessor" autofocus>
+                    <option repeat.for="assessor of assessors" value="${assessor.userName}">${assessor.userName}</option>
+                </select>
+                <button click.delegate="selectAssessor()">Zoek</button>
+            </div>
+        </div>
+
+        <template if.bind="isWaiting">
+            <i class="fa fa-spinner fa-pulse fa-2x"></i><br />
+        </template>
+
+        <div if.bind="subjects">
+            <p>Selecteer hier voor welke vak en cohort u een examen gaat invullen:</p>
+
+            <div id="selectBar">
+                <select id="subject">
+                    <option repeat.for="subject of subjects" value="${subject.name}">${subject.name}</option>
+                </select>
+
+                <select value.bind="cohort" id="cohort">
+                    <option repeat.for="cohort of cohorts">${cohort}</option>
+                </select>
+
+                <button click.delegate="showExams()">Zoek</button>
+            </div>
+
+        </div>
+
+        <ul class="results" id="exams">
+            <li repeat.for="exam of exams" click.delegate="$parent.startAssessment(exam.name, exam.subject, exam.cohort)">
+                <p>Vak: ${exam.subject}</p>
+                <p>Naam: ${exam.name}</p>
+                <p>Cohort: ${exam.cohort}</p>
+                <p>Crebo: ${exam.crebo}</p>
+            </li>
+        </ul>
+
+        <p>${messageExam}</p>
+</template>

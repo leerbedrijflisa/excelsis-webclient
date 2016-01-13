@@ -196,3 +196,12 @@ FakesAssemblies/
 *.opt
 Lisa.Excelsis.WebApi/Migrations/20150924082928_allthethings.cs
 Lisa.Excelsis.WebApi/Migrations/20150924082928_allthethings.Designer.cs
+Lisa.Excelsis.WebApi/Migrations/20150924084713_Initial.Designer.cs
+Lisa.Excelsis.WebApi/Migrations/20150924084713_Initial.cs
+Lisa.Excelsis.WebApi/Migrations/20150928075855_Everything.cs
+Lisa.Excelsis.WebApi/Migrations/20150928075855_Everything.Designer.cs
+Lisa.Excelsis.WebApi/Migrations/20150928121919_everyting.Designer.cs
+Lisa.Excelsis.WebApi/Migrations/20150928121919_everyting.cs
+Lisa.Excelsis.WebApi/Properties/PublishProfiles/Excelsis-API-publish.ps1
+Lisa.Excelsis.WebApi/Properties/PublishProfiles/excelsis-develop-webapi - Web Deploy-publish.ps1
+Lisa.Excelsis.WebClient/Properties/PublishProfiles/excelsis-develop-webclient - Web Deploy-publish.ps1
