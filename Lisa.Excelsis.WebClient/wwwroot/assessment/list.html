@@ -32,9 +32,9 @@
             <p>Student: ${assessment.student.name}</p>
             <p>Studentnummer: ${assessment.student.number}</p>
             <p>Examinatoren:</p>
-            <ul repeat.for="assessor of assessment.assessors">
-                <li style="">
-                    ${assessor.firstName} ${assessor.lastName}
+            <ul repeat.for="assessor of assessment.assessors" class="assessorList">
+                <li>
+                    ♦ ${assessor.firstName} ${assessor.lastName}
                     <hr />
                 </li>
             </ul>

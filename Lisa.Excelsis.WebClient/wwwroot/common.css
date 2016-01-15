@@ -67,7 +67,8 @@ ul
 ul.results
 {
 	list-style-type: none;
-	margin: 0px;
+    text-align: center;
+    margin: 0px;
 	padding: 0px;
 }
 
@@ -78,8 +79,9 @@ ul.results > li
     color: black;
     font-weight: bold;
 	border-radius: 3px;
+    text-align: left;
 	margin: 10px;
-    padding: 10px;
+    padding: 0px 20px 0px 20px;
     min-width: 250px;
 	max-width: 250px;
 	-moz-transition: all 0.1s ease-in-out;
@@ -103,6 +105,7 @@ ul li
 	display: inline-block;
 	text-align: center;
 	top: 0;
+    padding: 0;
 }
 
 ul li a
@@ -156,6 +159,13 @@ ul li a
     border-bottom: 1px solid #fe7515;
 }
 
+.assessorList
+{
+    margin:0;
+    padding:0;
+    text-align: left;
+}
+
 select
 {
 	border: 1px solid #DB4105;
@@ -172,6 +182,10 @@ form
 	text-align: match-parent;
 }
 
+hr
+{
+    border-color: #DB4105;
+}
 input[type=text], textarea
 {
 	border: 1px solid #DDDDDD;
@@ -190,6 +204,12 @@ input[type=text]:focus, textarea:focus
 {
 	border: 1px solid #DB4105;
 	box-shadow: 0 0 5px #fe7515;
+}
+
+li
+{
+    margin: 0;
+    padding: 0;
 }
 
 button
