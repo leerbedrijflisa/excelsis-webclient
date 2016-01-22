@@ -1,6 +1,5 @@
 ﻿<template>
         <h1>${heading}</h1>
-
         <div id="selectAssessor" if.bind="assessors">
             <p>Selecteer hier voor welke leraar u een examen gaat invullen:</p>
             <div id="selectBar">
@@ -31,7 +30,6 @@
             </div>
 
         </div>
-
         <ul class="results" id="exams">
             <li repeat.for="exam of exams" click.delegate="$parent.startAssessment(exam.name, exam.subject, exam.cohort)">
                 <p>Vak: ${exam.subject}</p>
@@ -40,6 +38,5 @@
                 <p>Crebo: ${exam.crebo}</p>
             </li>
         </ul>
-
-        <p>${messageExam}</p>
+    <div class="message" id="message"><i class="fa fa-times-circle"></i> ${message}</div>
 </template>

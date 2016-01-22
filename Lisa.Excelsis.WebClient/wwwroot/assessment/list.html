@@ -23,6 +23,7 @@
         </form>
     </div>
 
+
     <ul class="results" id="assessments">
         <li repeat.for="assessment of assessments" click.delegate="$parent.openAssessment(assessment.exam.name, assessment.exam.subject, assessment.exam.cohort, assessment.id)">
             <p>Examen: ${assessment.exam.subject} - ${assessment.exam.name}</p>
@@ -40,5 +41,5 @@
             </ul>
         </li>
     </ul>
-    <p>${messages}</p>
+    <div class="message" id="message"><i class="fa fa-times-circle"></i> ${message}</div>
 </template>

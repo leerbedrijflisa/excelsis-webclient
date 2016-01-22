@@ -67,7 +67,7 @@ ul
 ul.results
 {
 	list-style-type: none;
-    text-align: center;
+    text-align: left;
     margin: 0px;
 	padding: 0px;
 }
@@ -166,6 +166,10 @@ ul li a
     text-align: left;
 }
 
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
 select
 {
 	border: 1px solid #DB4105;
@@ -186,7 +190,7 @@ hr
 {
     border-color: #DB4105;
 }
-input[type=text], textarea
+input[type=text], textarea, input[type="number"]
 {
 	border: 1px solid #DDDDDD;
 	border-radius: 5px;
@@ -198,6 +202,13 @@ input[type=text], textarea
 	padding: 6px;
 	-webkit-transition: all 0.1s ease-in-out;
 	width: 30% auto;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
 
 input[type=text]:focus, textarea:focus
@@ -324,6 +335,20 @@ button:hover
     color: green;
 }
 
+.title
+{
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.message, .studentNameMessage, .studentNumberMessage
+{
+    color: red;
+    display: none;
+    font-weight: bold;
+    font-size:16px;
+    padding: 10px;
+}
 
 ul.li
 {

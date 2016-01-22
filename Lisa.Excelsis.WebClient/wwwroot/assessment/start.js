@@ -52,19 +52,32 @@ export class Start{
     //The function below is made to save the student information on an observation page
     SaveStudentMetaData(id)
     {
-        if (this.number != 0 && this.number.length < 8)
+        if(this.name.match("[0-9]") || this.name.length < 1)
         {
-            alert("The student number you have entered is too short (example 99017927)");
+            this.studentNameMessage = "Your student name can not be empty or contain numbers";
+            document.getElementById("studentNameMessage").style.display = "block";
+        }      
+        else
+        {
+            document.getElementById("studentNameMessage").style.display = "none";
         }
-        else{
-         var content = [];
-                content.push(this.data.CreateResourcePatch("replace", "studentname", this.name)[0]);
-                content.push(this.data.CreateResourcePatch("replace", "studentnumber", this.number)[0]);
-                //content.push(this.data.CreateResourcePatch("replace", "assessed", this.utils.formatDateTime(this.newDate,this.newTime))[0]);
-                this.data.PatchAssessment(id, content);
-                location.reload();
+        if (this.number.length < 8)
+        {
+            this.studentNumberMessage = "Your student number should be at least 8 digits and can not be blank"; 
+            document.getElementById("studentNumberMessage").style.display = "block";
         }
-       
+        else 
+        {
+            document.getElementById("studentNumberMessage").style.display = "none";
+        }
+        if(!this.name.match("[0-9]") && this.name.length > 0 && this.number.length > 7)
+        {
+            var content = [];
+            content.push(this.data.CreateResourcePatch("replace", "studentname", this.name)[0]);
+            content.push(this.data.CreateResourcePatch("replace", "studentnumber", this.number)[0]);
+            this.data.PatchAssessment(id, content);
+            location.reload();
+        }    
     }
 
     //The function below is to have the buttons on the observation page to tell if the criteria is done/not done.

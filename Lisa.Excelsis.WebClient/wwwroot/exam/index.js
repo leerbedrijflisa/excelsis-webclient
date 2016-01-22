@@ -20,6 +20,11 @@ export class Exam{
         
         this.http.get("/assessors").then(response => {
             this.assessors = response.content;
+            if(this.assessors.length < 1)
+            {
+                this.message = "Geen examinator(en) gevonden!";
+                document.getElementById("message").style.display = "block";
+            }
             this.isWaiting = false;
         });        
         
@@ -32,6 +37,11 @@ export class Exam{
         this.http.get("/subjects?assessor="+this.assessor).then(response => {
             document.getElementById("selectAssessor").style.display = "none";
             this.subjects = response.content;
+            if(this.subjects.length < 1)
+            {
+                this.message = "Geen vak(ken) gevonden!";
+                document.getElementById("message").style.display = "block";
+            }
             this.isWaiting = false;
         });
     }
@@ -41,7 +51,11 @@ export class Exam{
         var cohort = document.getElementById('cohort').value;
         this.http.get("/exams/"+subject+"/"+cohort).then(response => {
             this.exams = response.content;
-            this.messageExam = null;
+            if(this.exams.length < 1)
+            {
+                this.message = "Geen examen(s) gevonden!";
+                document.getElementById("message").style.display = "block";
+            }
             document.getElementById("exams").style.display = "inline";
         }, response => {
             if(response.statusCode == 404){

@@ -40,24 +40,39 @@ export class Index{
             "assessed" : this.utils.formatDateTime(this.newDate, this.newTime),     
             "student" : new Object()
         };
-        if(this.number != null || this.name != null){
+        if(this.number != null || this.name != null)
+        {
             Content.student["name"] = this.name;
             Content.student["number"] = this.number;
         }
-             
-        var url = this.utils.spaceToDash("assessments/"+this.exam.subject+"/"+this.exam.cohort+"/"+this.exam.name);
-        this.http.post(url, Content).then(response => {
-            this.assessment = response.content;
-            this.router.navigateToRoute('assessmentId', {subject: this.exam.subject, cohort: this.exam.cohort, name: this.exam.name, assessmentid: this.assessment.id });
-        });
-
-       //, response => {
-            //    if(response.httpstatuscode == 400){
-            //        if(response.content.code == 1111){
-            //            var message = "het veld " + response.content.value.field + " is verplicht.";
-            //        }
-            //    }
-            //    this.assessment = response.content;           
-            //});       
+        if(this.number != null || this.name != null)
+            {
+            if(this.name.match("[0-9]"))
+            {
+                this.studentNameMessage = "Your student name can not contain any numbers";
+                document.getElementById("studentNameMessage").style.display = "block";
+            }      
+            else
+            {
+                document.getElementById("studentNameMessage").style.display = "none";
+            }
+            if (this.number != 0 && this.number.length < 8)
+            {
+                this.studentNumberMessage = "Your student number should be at least 8 digits, please try again"; 
+                document.getElementById("studentNumberMessage").style.display = "block";
+            }
+            else 
+            {
+                document.getElementById("studentNumberMessage").style.display = "none";
+            }
+        }
+        else
+        {
+            var url = this.utils.spaceToDash("assessments/"+this.exam.subject+"/"+this.exam.cohort+"/"+this.exam.name);
+            this.http.post(url, Content).then(response => {
+                this.assessment = response.content;
+                this.router.navigateToRoute('assessmentId', {subject: this.exam.subject, cohort: this.exam.cohort, name: this.exam.name, assessmentid: this.assessment.id });
+            });    
+        }
     }
 }

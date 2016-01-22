@@ -4,11 +4,13 @@
             <div>
                 <label>Naam</label>
                 <input type="text" value.bind="name">
+                <div class="studentNameMessage" id="studentNameMessage">${studentNameMessage}</div>
             </div>
             <div>
                 <label>Studentnummer</label>
-                <input type="text" value.bind="number">
-            </div>
+                <input type="number" value.bind="number">
+                <div class="studentNumberMessage" id="studentNumberMessage">${studentNumberMessage}</div>
+            </div>  
             <div>
                 <label>Datum</label>
                 <input type="text" value.bind="newDate">

@@ -15,7 +15,6 @@ export class List
     }
 
     activate() {
-        this.message = "Studenten worden geladen. Een moment geduld astublieft...";
         this.heading = "Assessments";
         this.http.get("/assessors").then(response => {
             this.assessors = response.content;
@@ -27,7 +26,17 @@ export class List
         this.http.get(url).then(response => {
             this.assessments = response.content;
             this.message = null;
-            document.getElementById("assessments").style.display = "inline";
+            if(response.content.length < 1)
+            {
+                this.message = "Geen resultaten gevonden!";
+                document.getElementById("message").style.display = "block";
+
+            }
+            else
+            {
+                document.getElementById("assessments").style.display = "inline";
+                document.getElementById("message").style.display = "none";
+            }
         }, response => {
             if(response.statusCode == 404){
                 this.message = "Helaas er zijn geen assessments gevonden.";
@@ -39,9 +48,19 @@ export class List
     selectAssessor(){
         this.assessor = document.getElementById('assessor').value;
         this.http.get("/assessments?assessors="+this.assessor).then(response => {
-            this.assessments = response.content
+            this.assessments = response.content;
+            this.message = null;
+            if(response.content.length < 1)
+            {
+                this.message = "Geen resultaten gevonden!";
+                document.getElementById("message").style.display = "block";
+            }          
+            else
+            {
             document.getElementById("assessments").style.display = "block";
             document.getElementById("selectBarAssessor").style.display = "none";
+            document.getElementById("message").style.display = "none";
+            }
         }, response => {
             if(response.statusCode == 404){
                 this.messageExam = "Helaas er zijn geen examens gevonden.";

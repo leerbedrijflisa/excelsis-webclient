@@ -12,7 +12,7 @@
                 <div class="info">
                     <i id="moreinfo${observation.id}" class="fa fa-info-circle moreinfo" click.delegate="$parent.$parent.explanationshow(observation.id)"></i>
                 </div>
-                <span class="title">${observation.criterion.title} </span>  <br /> 
+                <span class="title">${observation.criterion.title} </span>
                 <br />      
                 <div class="answer">
                     <label class="questionmark1 answer" for="rating-done-${observation.criterion.order}" class.bind="observation.result == 'seen' ? 'seen' : 'notrated' ">
