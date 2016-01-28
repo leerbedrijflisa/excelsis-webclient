@@ -34,40 +34,17 @@ export class Index{
         this.assessor = params.assessor;
     }
 
-    startAssessment() {  
+    startAssessment() { 
         var Content = {            
             "assessors": [this.assessor],
             "assessed" : this.utils.formatDateTime(this.newDate, this.newTime),     
             "student" : new Object()
         };
-        if(this.number != null || this.name != null)
+
+        if (this.StudentDataIsValid(this.name, this.number))
         {
             Content.student["name"] = this.name;
             Content.student["number"] = this.number;
-        }
-        if(this.number != null || this.name != null)
-            {
-            if(this.name.match("[0-9]"))
-            {
-                this.studentNameMessage = "Your student name can not contain any numbers";
-                document.getElementById("studentNameMessage").style.display = "block";
-            }      
-            else
-            {
-                document.getElementById("studentNameMessage").style.display = "none";
-            }
-            if (this.number != 0 && this.number.length < 8)
-            {
-                this.studentNumberMessage = "Your student number should be at least 8 digits, please try again"; 
-                document.getElementById("studentNumberMessage").style.display = "block";
-            }
-            else 
-            {
-                document.getElementById("studentNumberMessage").style.display = "none";
-            }
-        }
-        else
-        {
             var url = this.utils.spaceToDash("assessments/"+this.exam.subject+"/"+this.exam.cohort+"/"+this.exam.name);
             this.http.post(url, Content).then(response => {
                 this.assessment = response.content;
@@ -75,4 +52,30 @@ export class Index{
             });    
         }
     }
+    StudentDataIsValid(name, number){
+        var valid = true;
+        if(name != null && name.length > 0 && !name.match("^[a-zA-Z\s]*$"))
+        {
+            valid = false;
+            this.studentNameMessage = "Your student name can only contain letters and spaces.";
+            document.getElementById("studentNameMessage").style.display = "block";
+        }
+        else if(name == null || name.match("^[a-zA-Z\s]*$"))
+        {
+            document.getElementById("studentNameMessage").style.display = "none";
+        }
+        if(number != null && number.length > 0 && !number.match("^[0-9]{8}$"))
+        {
+            valid = false;
+            this.studentNumberMessage = "Your student number should be at least 8 digits, please try again"; 
+            document.getElementById("studentNumberMessage").style.display = "block";
+        }
+        else
+        {
+            document.getElementById("studentNumberMessage").style.display = "none";
+        }
+        return valid;
+    }
 }
+
+

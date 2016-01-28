@@ -1,7 +1,9 @@
 ﻿<template>
     <ul class="navigation">
-        <li repeat.for="item of router.navigation" class="header">
-            <a href.bind="item.href">${item.title}</a>
+        <li class="nav">
+             <a href="" class="navigationItem"><i class="fa fa-home"></i> Home</a>
+            <a href="#/assessments" class="navigationItem"><i class="fa fa-list-alt"></i> Assessments</a>
+            <a href="#/version" class="navigationItem"><i class="fa fa-database"></i> Version</a>
         </li>
     </ul>
   <router-view></router-view>

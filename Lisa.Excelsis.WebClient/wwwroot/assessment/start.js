@@ -52,25 +52,7 @@ export class Start{
     //The function below is made to save the student information on an observation page
     SaveStudentMetaData(id)
     {
-        if(this.name.match("[0-9]") || this.name.length < 1)
-        {
-            this.studentNameMessage = "Your student name can not be empty or contain numbers";
-            document.getElementById("studentNameMessage").style.display = "block";
-        }      
-        else
-        {
-            document.getElementById("studentNameMessage").style.display = "none";
-        }
-        if (this.number.length < 8)
-        {
-            this.studentNumberMessage = "Your student number should be at least 8 digits and can not be blank"; 
-            document.getElementById("studentNumberMessage").style.display = "block";
-        }
-        else 
-        {
-            document.getElementById("studentNumberMessage").style.display = "none";
-        }
-        if(!this.name.match("[0-9]") && this.name.length > 0 && this.number.length > 7)
+        if(this.StudentDataIsValid(this.name, this.number))
         {
             var content = [];
             content.push(this.data.CreateResourcePatch("replace", "studentname", this.name)[0]);
@@ -78,6 +60,31 @@ export class Start{
             this.data.PatchAssessment(id, content);
             location.reload();
         }    
+    }
+
+    StudentDataIsValid(name, number){
+        var valid = true;
+        if(name != null && name.length > 0 && !name.match("^[a-zA-Z\s]*$"))
+        {
+            valid = false;
+            this.studentNameMessage = "Your student name can only contain letters and spaces.";
+            document.getElementById("studentNameMessage").style.display = "block";
+        }
+        else if(name == null || name.match("^[a-zA-Z\s]*$"))
+        {
+            document.getElementById("studentNameMessage").style.display = "none";
+        }
+        if(number != null && number.length > 0 && !number.match("^[0-9]{8}$"))
+        {
+            valid = false;
+            this.studentNumberMessage = "Your student number should be at least 8 digits, please try again"; 
+            document.getElementById("studentNumberMessage").style.display = "block";
+        }
+        else
+        {
+            document.getElementById("studentNumberMessage").style.display = "none";
+        }
+        return valid;
     }
 
     //The function below is to have the buttons on the observation page to tell if the criteria is done/not done.
