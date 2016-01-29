@@ -74,7 +74,7 @@ ul.results
 
 ul.results > li
 {
-	border: 1px solid black;
+	border: 1px solid #ad3100;
     background-image: url(img/bg.png);
     color: black;
     font-weight: bold;

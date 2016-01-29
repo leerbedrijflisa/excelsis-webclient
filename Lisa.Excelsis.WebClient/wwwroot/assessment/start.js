@@ -16,7 +16,6 @@ export class Start{
 
     activate(params) {
         this.heading = "Assessment";
-       
         if(params.subject != null){
             this.exam = {
                 "subject": params.subject,
@@ -31,9 +30,11 @@ export class Start{
 
     getAssessment(id){
         this.http.get("assessments/"+id).then(response => {
-            this.assessment = response.content; 
-            this.name = this.assessment.student.name;
-            this.number = this.assessment.student.number;
+            this.assessment = response.content;
+
+            this.name = (!localStorage.getItem("studentname"))? this.assessment.student.name : localStorage.getItem("studentname");
+            this.number = (!localStorage.getItem("studentnumber"))? this.assessment.student.number : localStorage.getItem("studentnumber");
+
             this.newDate = this.utils.formatDate(this.assessment.assessed);
             this.newTime = this.utils.formatTime(this.assessment.assessed);
 
@@ -54,11 +55,13 @@ export class Start{
     {
         if(this.StudentDataIsValid(this.name, this.number))
         {
+            localStorage.setItem("studentname", this.name); 
+            localStorage.setItem("studentnumber", this.number); 
+
             var content = [];
-            content.push(this.data.CreateResourcePatch("replace", "studentname", this.name)[0]);
-            content.push(this.data.CreateResourcePatch("replace", "studentnumber", this.number)[0]);
+            content.push(this.data.CreateResourcePatch("replace", "studentname", localStorage.getItem("studentname"))[0]);
+            content.push(this.data.CreateResourcePatch("replace", "studentnumber", localStorage.getItem("studentnumber"))[0]);
             this.data.PatchAssessment(id, content);
-            location.reload();
         }    
     }
 

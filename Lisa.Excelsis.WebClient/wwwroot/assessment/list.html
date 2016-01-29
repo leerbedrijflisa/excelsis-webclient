@@ -7,6 +7,11 @@
         <button id="assessorSearch" click.delegate="assessorSearch()">Op examinator</button>
     </div>
 
+    <template if.bind="isWaiting">
+        <i class="fa fa-spinner fa-pulse fa-2x"></i>
+        <br />
+    </template>
+
     <div id="selectBarAssessor" class="selectBarAssessor">
         <p>Op welke examinator wilt U beoordelingen zoeken?</p>
             <select value.bind="assessor" id="assessor" autofocus>

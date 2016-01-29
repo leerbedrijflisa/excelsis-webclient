@@ -16,9 +16,11 @@ export class List
 
     activate() {
         this.heading = "Assessments";
+        this.isWaiting = true;
         this.http.get("/assessors").then(response => {
             this.assessors = response.content;
         });
+        this.isWaiting = false;
     }
     
     showAssessmentsStudentNumber(){
@@ -26,22 +28,25 @@ export class List
         this.http.get(url).then(response => {
             this.assessments = response.content;
             this.message = null;
+            this.isWaiting = true;
             if(response.content.length < 1)
             {
                 this.message = "Geen resultaten gevonden!";
                 document.getElementById("message").style.display = "block";
-
+                this.isWaiting = false;
             }
             else
             {
                 document.getElementById("assessments").style.display = "inline";
                 document.getElementById("message").style.display = "none";
             }
+            this.isWaiting = false;
         }, response => {
             if(response.statusCode == 404){
                 this.message = "Helaas er zijn geen assessments gevonden.";
                 document.getElementById("assessments").style.display = "none";
             }
+            this.isWaiting = false;
         });
     }
 
@@ -50,10 +55,12 @@ export class List
         this.http.get("/assessments?assessors="+this.assessor).then(response => {
             this.assessments = response.content;
             this.message = null;
+            this.isWaiting = true;
             if(response.content.length < 1)
             {
                 this.message = "Geen resultaten gevonden!";
                 document.getElementById("message").style.display = "block";
+                this.isWaiting = false;
             }          
             else
             {
@@ -61,6 +68,7 @@ export class List
             document.getElementById("selectBarAssessor").style.display = "none";
             document.getElementById("message").style.display = "none";
             }
+            this.isWaiting = false;
         }, response => {
             if(response.statusCode == 404){
                 this.messageExam = "Helaas er zijn geen examens gevonden.";

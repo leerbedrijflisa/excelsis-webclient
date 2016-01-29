@@ -3,12 +3,12 @@
             <h2>${exam.subject} &ndash; ${exam.name}</h2>
             <div>
                 <label>Naam</label>
-                <input type="text" value.bind="name">
+                <input type="text" value.bind="name" class="quicksaver"  change.delegate="SaveStudentMetaData(assessment.id)">
                 <div class="studentNameMessage" id="studentNameMessage">${studentNameMessage}</div>
             </div>
             <div>
                 <label>Studentnummer</label>
-                <input type="number" value.bind="number"> 
+                <input type="number" value.bind="number"class="quicksaver"  change.delegate="SaveStudentMetaData(assessment.id)"> 
                 <div class="studentNumberMessage" id="studentNumberMessage">${studentNumberMessage}</div>
             </div>         
             <div>
@@ -19,7 +19,6 @@
                 <label>Tijd</label>
                 <input type="text" value.bind="newTime" disabled="disabled">
             </div>
-            <button class="saveButton" click.delegate="SaveStudentMetaData(assessment.id)"><i class="fa fa-check"></i> Opslaan</button>
             <compose view="assessment/questions.html" model.bind="assessment">
         </form>
 </template>

@@ -35,6 +35,7 @@ export class Index{
     }
 
     startAssessment() { 
+        localStorage.clear();
         var Content = {            
             "assessors": [this.assessor],
             "assessed" : this.utils.formatDateTime(this.newDate, this.newTime),     

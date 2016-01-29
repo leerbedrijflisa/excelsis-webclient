@@ -47,6 +47,7 @@ export class Exam{
     }
 
     showExams() {       
+        this.isWaiting = true;
         var subject = document.getElementById('subject').value;
         var cohort = document.getElementById('cohort').value;
         this.http.get("/exams/"+subject+"/"+cohort).then(response => {
@@ -55,7 +56,9 @@ export class Exam{
             {
                 this.message = "Geen examen(s) gevonden!";
                 document.getElementById("message").style.display = "block";
+                this.isWaiting = false;
             }
+            this.isWaiting = false;
             document.getElementById("exams").style.display = "inline";
         }, response => {
             if(response.statusCode == 404){
