@@ -197,7 +197,8 @@ ul li a
     text-align: left;
 }
 
-input[type="number"] {
+input[type="number"] 
+{
     -moz-appearance: textfield;
 }
 
@@ -221,6 +222,7 @@ hr
 {
     border-color: #DB4105;
 }
+
 input[type=text], textarea, input[type="number"]
 {
 	border: 1px solid #DDDDDD;
@@ -242,7 +244,7 @@ input::-webkit-inner-spin-button {
     margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
 
-input[type=text]:focus, textarea:focus
+input[type=text]:focus, textarea:focus, input[type="number"]:focus
 {
 	border: 1px solid #DB4105;
 	box-shadow: 0 0 5px #fe7515;
@@ -296,6 +298,7 @@ button:hover
 .observations
 {
     background-image: url(img/bg.png);
+    border-top: 1px solid #DB4105;
 }
 
 .categories > .category
@@ -304,7 +307,6 @@ button:hover
     padding: 8px;
     margin: 0;
     margin-top: 20px;
-    border: 1px solid #DB4105;
 }
 
 .categories > .category > .index
@@ -316,7 +318,6 @@ button:hover
 {
     background-color: #ededed;
     padding-top: 5px;
-    border-bottom: 2px solid #DB4105;
 
 }
 
@@ -331,7 +332,7 @@ button:hover
 .categories > .observations > .observation > .answer,
 .categories > .observations > .observation > .markings
 {
-  display: inline-block; 
+    display: inline-block; 
 }
 
 .numbering
@@ -439,11 +440,11 @@ button
 
 .moreinfo
 {
-    color: green;
+    color: #DB4105;
     cursor: pointer;
 }
 
-.fa-times.lessinfo
+.lessinfo
 {
     display: none;
     color: red;
