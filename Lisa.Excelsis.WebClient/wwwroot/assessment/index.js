@@ -55,13 +55,13 @@ export class Index{
     }
     StudentDataIsValid(name, number){
         var valid = true;
-        if(name != null && name.length > 0 && !name.match("^[a-zA-Z\s]*$"))
+        if(name != null && name.length > 0 && !name.match(/^([a-zA-Z]+)?([a-zA-Z\s]+)$/g))
         {
             valid = false;
             this.studentNameMessage = "Your student name can only contain letters and spaces.";
             document.getElementById("studentNameMessage").style.display = "block";
         }
-        else if(name == null || name.match("^[a-zA-Z\s]*$"))
+        else if(name == null || name.match(/^([a-zA-Z]+)?([a-zA-Z\s]+)$/g))
         {
             document.getElementById("studentNameMessage").style.display = "none";
         }
